@@ -5,11 +5,12 @@
 
 To get things started, we need to download a few things for our __development environment__. These include the following:
 
-1. A bash-friendly command-line interface
-2. Version control systems
-3. A text editor
-4. Helpful editor plugins
-5. Slack!
+1. An OS-specific package management system
+2. A bash-friendly command-line interface
+3. Version control systems
+4. A text editor
+5. Helpful editor plugins
+6. Slack!
 
 The process for each of these things should depend a bit on your operating system, but should help us work together in a consistent environment for the rest of the course.
 
@@ -20,6 +21,33 @@ You'll also need a few online accounts to get started. These should _all be tied
 3. Netlify
 
 We'll set them up together as we work through tonight's materials.
+
+### Building a Dev Environment
+
+Whenever we work on a project, we want to make sure that we are using a consistent set of tools. But installing those tools in a way that is consistent is a tough problem! To help out with installing the pieces of our development environment, we rely on package managers to help us maintain a consistent set of __environment dependencies__.
+
+> ENVIRONMENT DEPENDENCIES are programs that we depend on to help us create software in our development environment
+
+Because each operating system is so different, we'll need to install a different command-line package manager for each OS (more on the "command-line" in a minute). They are:
+
+#### Linux
+  + all Ubuntu-flavored distributions ship with `apt`, which will work perfectly out-of-the-box!
+  + Arch Linux comes with `pacman`, and it's a good idea to add [`yaourt`](https://www.ostechnix.com/install-yaourt-arch-linux/) as well.
+  + RPM-based distributions should use `yum`
+
+#### macOS
+  + [Homebrew](https://brew.sh/) is the package manager of choice for macOS
+  + to install, open up the `Terminal` application from Finder, and paste the following into the box:
+
+  `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+
+  + ...then just follow the prompts to install!
+
+#### Windows
+  + [Chocolatey](https://chocolatey.org/install) is the package manager of choice for Windows.
+  + To install, open the PowerShell application as an administrator, then run the following to install Chocolatey:
+
+  `Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))`
 
 
 ### Interfacing with Computers
@@ -42,31 +70,29 @@ There are lots of applications that are built to be a command-line interface. Ma
   + Built-in Desktop Environment Terminals (Konsole, GNOME shell, etc.)
   + Termite, Terminator, Tilda, etc.
 
-  To install:
+  __to install__:
 
   If you're using Linux, you already have a unix-style terminal installed! Any will do for this course, but you may use your distribution's package manager to install another if you're so inclined.
 
 #### macOS
-  + Terminal
   + iTerm2
 
-  To install:
+  __to install__:
 
-  While using Terminal is fine for most purposes, iTerm2 has some nice additional features. Download iTerm2's latest stable release from [here](https://www.iterm2.com/downloads.html)
+  `brew cask install iterm2`
 
 #### Windows
   + Linux Subsystem for Windows terminal
-  + Cygwin
   + PowerShell
   + git bash
 
-  To install:
+  __to install__:
 
   If at all possible (on an updated Windows 10 machine) install the [Linux Subsystem on Windows](https://msdn.microsoft.com/en-us/commandline/wsl/install-win10). This gives you access to most of the functionality of a Linux system called Ubuntu, which includes a wonderful terminal emulator and package manager.
 
-  If the Linux Subsystem isn't possible, then we can get a fake Linux terminal with [Cygwin](https://cygwin.com/install.html). Download one of the executables for your OS (32-bit or 64-bit), and run to install Cygwin.
+  However, this can be time-consuming to install, so we will get started tonight with the Git Bash terminal that's packaged with `git`, our version control system. We'll download that with the following code in PowerShell to get us started:
 
-  However, both of these options can be time-consuming to install, so we will get started tonight with the Git Bash terminal that's packaged with `git`, our version control system. We'll download that [here](https://git-scm.com/downloads).
+  `choco install git -params '"/GitAndUnixToolsOnPath"'`
 
 
 > __NOTE__: From here on out, we'll use the terms `terminal`, `command-line`, and `CLI` interchangeably
@@ -113,12 +139,6 @@ The text editor that we'll be using for this course is called [Atom](https://ato
     Haikus are easy,
     But endings are difficult.
     Refrigerator.
-
----
-
-#### DEMO 1:
-
-At this point, the instructor should demonstrate the difference between a `.txt` file and an `.rtf` or `.docx` (Rich Text) file in Atom. It's important for students to understand that Atom is only for plain-text, not Rich Text.
 
 ---
 
@@ -190,7 +210,7 @@ w/ sub-lists
 
 #### EXERCISE 5
 
-1. Now it's time to format haiku.txt with Markdown! Create a new file called `haiku.md` (HINT: `touch haiku.md`)
+1. Now it's time to format haiku.txt with Markdown! Let's `mv` `haiku.txt` to a new file called `haiku.md` with the command `mv haiku.txt haiku.md`
 2. Create a title for your haiku and format it as a header with `#`
 3. Italicize the first two lines with `* *`.
 4. Italicize and bold the last line with `*** ***`.
