@@ -41,9 +41,7 @@ Let's add another page to our growing Portfolio Project! This page will be for y
     |   |-index.html
     |
     |-index.html
-    |-firebase.json (firebase configuration file)
     |-.git (hidden directory)
-    |-.gitignore (hidden file)
     ```
 2. Inside of your new `blog/index.html` file, create a short blog post welcoming readers to your blog (no more than 5 sentences of content). More important than the content will be the *page structure* and *layout*. Make sure to include the following elements in your post as separate `<div>`s:
     1. A header area (with your blog title/subtitle, and maybe a splash photo)

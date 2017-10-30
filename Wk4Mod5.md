@@ -18,7 +18,7 @@ We've covered:
 + basic source control with `git`
 + collaboration through GitHub
 + website structure
-+ website deployment through firebase
++ website deployment through Netlify
 + HTML
 + CSS
 + JS data types (primitive and complex)
@@ -110,7 +110,7 @@ Our job is to put our best foot forward and engage with the hiring process in go
 
 ## Portfolio
 
-1. Create a personal site that features an impressive splash page and 30 seconds of scan-able content that would convince a hiring manager that you're potentially a good hire. You can build your own and host it on firebase or skip it and set up an about.me profile.
+1. Create a personal site that features an impressive splash page and 30 seconds of scan-able content that would convince a hiring manager that you're potentially a good hire. You can build your own and host it on Netlify or skip it and set up an about.me profile.
 2. Include the following on your site:
     + One marquee project, link to source code on GitHub and live deployed version.
     + An *About Me* section featuring a smiling picture and a short paragraph that makes you seem like a competent and enjoyable co-worker.

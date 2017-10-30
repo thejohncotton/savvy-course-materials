@@ -30,9 +30,7 @@ Let's create a new contact page for your website!
   |   |-index.html
   |
   |-index.html
-  |-firebase.json (firebase configuration file)
   |-.git (hidden directory)
-  |-.gitignore (hidden file)
   ```
 2. Set up your new contact page to use the same stylesheet as the rest of your site. HINT:
 

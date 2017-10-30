@@ -97,4 +97,4 @@ $('li').on('mouseleave', function(){
 ## Portfolio Project 2
 ### Adding `this` effects
 
-With the time remaining in class, try out a few of jQuery's built-in event shortcuts, including `.click()`, `.hover()`, `.submit()`, and `.keypress()`. Add an effect or animation on each event using `this` to capture the calling context of the target element. When you're happy with your fancy new event-driven site, push your changes to your GitHub profile and live to firebase! 
+With the time remaining in class, try out a few of jQuery's built-in event shortcuts, including `.click()`, `.hover()`, `.submit()`, and `.keypress()`. Add an effect or animation on each event using `this` to capture the calling context of the target element. When you're happy with your fancy new event-driven site, push your changes to your GitHub profile and live to Netlify! 
