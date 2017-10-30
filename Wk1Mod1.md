@@ -1,4 +1,4 @@
-# CLIs, git, GitHub, and "Hello, World"
+# CLIs, `git`, GitHub, and "Hello, World"
 ## Welcome to the first class!
 
 ### Housekeeping
@@ -110,35 +110,54 @@ We will start out by using the CLI to navigate through the file system on our pe
   3. change directories: `cd`
   4. move up a directory: `cd ..`
   5. move to your `$HOME` directory: `cd ~`
-3. In your `$HOME` directory (`~`), create a folder called `SavvyCoders` for all of your Savvy-related work! You can do that with the `mkdir` command (e.g. `mkdir SavvyCoders`).
+3. In your `$HOME` directory (`~`), create a folder called `Code` for all of your future coding projects. You can do that with the `mkdir` command (e.g. `mkdir ~/Code`)
+4. Inside of `Code`, create a `SavvyCoders` directory for all of your Savvy-related work! You can do that with the `mkdir` command (e.g. `mkdir ~/Code/SavvyCoders`).
 
 ---
 
-### Atom
+### More Environment Tools
+
+Beyond a package manager and CLI, we need a few more tools to help us work more efficiently.
+
+#### Git
+As developers, we can't manage file saving (_a.k.a._ version control) the same way as everyone else. We need a command-line program called `git` to help us out! You can install `git` through your OS's package manager, e.g.:
+
+Linux: `sudo apt install git` or `sudo pacman -S git`
+macOS: `brew install git`
+Windows: `choco install git -params '"/GitAndUnixToolsOnPath"'` (this should already be installed)
+
+
+#### Atom
 The text editor that we'll be using for this course is called [Atom](https://atom.io). It's a modular editor built for web development, maintained by GitHub, and contributed to by a large Open Source community.
 
----
+Linux: `sudo apt install atom` or `sudo pacman -S atom`
+macOS: `brew cask install atom`
+Windows: `choco install atom`
 
-#### EXERCISE 3
-1. Install Atom from the link above
-2. You can open Atom by typing `atom` in your CLI.
-3. Open up the Settings in Atom (File > Settings or `ctrl + comma`)
-4. Go to 'Install' and install the following packages:
-  1. [open-in-browser](https://atom.io/packages/open-in-browser)
-  2. [emmet](https://atom.io/packages/emmet
+Once you've installed Atom, you should be able to open it from the Start Menu (or Finder). Then, follow these steps to install a few helpful packages/extensions to Atom!
+
+1. Open up the Settings in Atom (File > Settings or `ctrl + comma`)
+2. Go to 'Install' and install the following packages:
+  1. [atom-live-server](https://atom.io/packages/atom-live-server)
+  2. [emmet](https://atom.io/packages/emmet)
   3. [file-icons](https://atom.io/packages/file-icons)
   4. [javascript-snippets](https://atom.io/packages/javascript-snippets)
-
+  5. [linter-eslint](https://atom.io/packages/linter-eslint)
+3. If you're on macOS, install shell commands (Atom > Install Shell Commands)
+4. Restart Atom
 ---
 
-#### EXERCISE 4
+#### EXERCISE 2
 1. Navigate to your `SavvyCoders` directory using your CLI
 2. You can open specific directories in Atom using the `atom` command from your command line! If you have already navigated inside the `SavvyCoders` directory, you can open folder using `atom .`
 3. Also in your CLI, use the command `touch haiku.txt` to create a new text file named `haiku.txt` inside of `SavvyCoders`.
 4. Write a short haiku using Atom! (And don't forget the 5-7-5 syllable structure):
-    Haikus are easy,
-    But endings are difficult.
-    Refrigerator.
+
+  ```
+  Haikus are easy,
+  But endings are difficult.
+  Refrigerator.
+  ```
 
 ---
 
@@ -208,7 +227,7 @@ w/ sub-lists
 ![local photo](assets/profile.png)
 ```
 
-#### EXERCISE 5
+#### EXERCISE 3
 
 1. Now it's time to format haiku.txt with Markdown! Let's `mv` `haiku.txt` to a new file called `haiku.md` with the command `mv haiku.txt haiku.md`
 2. Create a title for your haiku and format it as a header with `#`
@@ -220,15 +239,18 @@ w/ sub-lists
 
 ---
 
-### GitHub
-GitHub profiles are like a combination of LinkedIn and Facebook for developers, as well as a place to back up and store code. We'll learn more about how git and GitHub work later, but for now, it's important to create an account.
+### Developer Accounts
 
-#### EXERCISE 6
-1. Go to [GitHub](http://github.com) and create an account now!
-2. Post your profile to Slack `#general` channel
-2. Follow the profiles of your classmates and instructors
-3. Create a new [gist](http://gist.github.com) of your `haiku.md` document
-4. Share your gist on Slack, too!
+There are a number of different online services that help us be productive. Here are three that we'll use for this class.
+
+#### Slack
+All of our communication will go through the class-specific Slack channel! Please sign up for an account (if you haven't already) and download the slack client for your OS through your package manager.
+
+#### GitHub
+[GitHub](https://github.com) profiles are like a combination of LinkedIn and Facebook for developers, as well as a place to back up and store code. We'll learn more about how git and GitHub work later, but for now, it's important to create an account. When you've created an account, post a link to Slack, and follow the profiles of your classmates and instructors!
+
+#### Netlify
+Once you have a GitHub account, you can sign up for [Netlify](https://www.netlify.com/). We'll use Netlify for [Continuous Delivery](https://en.wikipedia.org/wiki/Continuous_delivery)
 
 ---
 
@@ -237,9 +259,9 @@ GitHub profiles are like a combination of LinkedIn and Facebook for developers, 
 Over the course of this class, you are going to build a Portfolio Page to practice your skills, introduce yourself to others, and demo all of the exercises and challenges that you complete in the next 4 weeks. To get started on this project, do the following:
 
 1. Make a new directory called `FirstnameLastname` (with YOUR first and last name, of course) inside the `SavvyCoders` directory. (HINT: `mkdir FirstnameLastname`).
-2. Navigate into your Portfolio Project directory (HINT: `cd FirstnameLastname`) and create a new Markdown document called `greeting.md`.
-3. Open `FirstnameLastname` in Atom (HINT: `atom .`) and start editing `greeting.md`.
-4. In `greeting.md`, mock out a quick introduction for those stumbling upon your future Portfolio Project. Be sure to include:
+2. Navigate into your Portfolio Project directory (HINT: `cd FirstnameLastname`) and create a new Markdown document called `README.md`.
+3. Open `FirstnameLastname` in Atom (HINT: `atom .`) and start editing `README.md`.
+4. In `README.md`, mock out a quick introduction for those stumbling upon your future Portfolio Project. Be sure to include:
   1. a picture of yourself
   2. a heading
   3. a greeting paragraph
@@ -249,171 +271,111 @@ Over the course of this class, you are going to build a Portfolio Page to practi
     + LinkedIn
     + Facebook
     + Twitter
-5. Share your new greeting as a gist, then post it to Slack!
 
 ---
 
-### HTML
-HTML (Hyper-Text Markup Language) is a markup language for describing the structure and content of web documents (web pages). It is comprised of markup tags and text content nested inside each other.
-![standard HTML structure](http://reactorprep.herokuapp.com/assets/images/html_breakdown.png).
+### Version Control with `git`
+To help us maintain, back up, and share our codebases, we're going to use `git` (the command-line tool) and GitHub (the online repository). These tools are fundamental parts of the web developer's workflow, and you'll be using them *every day* for the rest of your programming career!
 
-HTML tags are keywords (tag names) surrounded by angle brackets:
+`git` works a bit like a Time Machine, in the sense that you'll be able to revert to any saved state within a directory. So if you mangle your site's directory structure, you can always use `git` to revert back to simpler times. The important things to understand about `git` specifically:
+1. This is a CLI utility, so get ready for lots of text. All of our important files when programming will be text, so its only natural that we'd be navigating between save states (called 'commits') using text as well.
+2. Arbitrarily or automatically saving code is NOT a feature of `git`, and it shouldn't be. You only want to save meaningful chunks of code (e.g. a feature), not broken pieces here and there. Otherwise, there's no way to revert back to a useful save-state!
+3. Because of point \#2, 'saving' your progress with `git` is handled a bit differently. *You* are in charge of 'staging' your commits, and 'committing' changes only when *you* are ready.
 
-#### `<tagname> content </tagname>`
-+ HTML tags normally come in pairs like `<p>` and `</p>`
-+ The first tag in a pair is the start tag, the second tag is the end tag
-+ The end tag is written like the start tag, but with a slash before the tag name
+![the git commit workflow](https://git-scm.com/images/about/index1@2x.png)
 
-By following the proscribed rules of HTML, a web browser understands this to be a document with a heading and a paragraph. Here is what the browser interpreter thinks when given (this code):
-```html
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Page Title</title>
-  </head>
-  <body>
-    <h1>My First Heading</h1>
-    <p>My first paragraph.</p>
-  </body>
-</html>
-```
-+ The `!DOCTYPE` declaration defines the document type to be HTML
-+ The text between `<html>` and `</html>` describes an HTML document
-+ The text between `<head>` and `</head>` provides information about the document
-+ The text between `<title>` and `</title>` provides a title for the document
-+ The text between `<body>` and `</body>` describes the visible page content
-+ The text between `<h1>` and `</h1>` describes a heading
-+ The text between `<p>` and `</p>` describes a paragraph
+#### EXERCISE 4
 
----
+Let's get our feet wet with `git` by configuring our user identity.
 
-#### EXERCISE 7
-
-It's time to take a look at how browsers (like Chrome) render HTML content!
-1. Open [example1.html](https://savvycoders.com/class-slides/class-materials/week-1/module-1/html/example1.html)
-2. Open up Chrome's Dev Tools and take a look at Elements and their associated STYLES:
-  ![dev tools](http://reactorprep.herokuapp.com/assets/images/elements.png)
-
-3. ANSWER AS A GROUP:
-  1. What `font-size` does the browser give an `<h1>` element by default?
-  2. What `font-weight` does the browser give an `<h1>` element by default?
-  3. How does the browser render the extra spaces and new lines in the last paragraph?
-  4. Are there any parts of the body that are not rendered into the browser window?
-
----
-
-### Portfolio Project 2
-
-Now it's time to turn your `greeting.md` into a landing page for your portfolio site! Since browsers don't work with Markdown by default, we want to use HTML for our Portfolio on the web. Go through the following steps to get started:
-
-1. Make sure that you're inside your portfolio project directory (called `FirstnameLastname`).
-2. Once inside, we need to create our HTML file! We shouldn't call it `greeting`, though. All browsers look for an `index.html` file to display by default. You can name other pages whatever you'd like, but the landing page for every site should always be `index.html`. So let's create that file with `touch index.html`.
-3. Edit `index.html` in Atom. Make sure that it includes the following BEFORE we start porting in text from `greeting.md`:
-  1. `<!DOCTYPE HTML>`
-  2. `<html>`,`<head>`, and `<body>` tags
-  3. `<title>` tags and a title of `Firstname Lastname | Web Developer`
-
-  *HINT: you can use emmet's HTML boilerplate by typing* `!` *then pressing* `TAB`
-
-4. Then you can start moving content from `greeting.md` into `index.html`
-  1. Use `<h1>` for headings
-  2. Use `<p>` for paragraphs of text
-  3. Use `<ul>` for unordered lists (and use `<li>` for each nested list element)
-  4. Use `<hr>` to create an horizontal rule
-  5. Use `<br>` to add extra line breaks between elements
-  6. Make sure you've saved the file!
-  7. To see what your page looks like, right-click on index.html in your directory tree (in the left-hand sidebar) and click 'Open in Browser'
-
-  ---
-
-### More HTML tags
-#### EXERCISE 8
-Open up [this page](https://savvycoders.com/class-slides/class-materials/week-1/module-1/html/example2.html) in Chrome and answer the following questions as a group:
-1. What `font-size` does the browser give an `<h2>` element by default?
-2. What `font-size` does the browser give an `<h6>` element by default?
-3. What `font-style` does the browser give an `<em>` element by default?
-4. What `text-decoration` does the browser give an `<a>` element by default?
-5. What `list-style-type` does the browser give a `<li>` element?
-
-
-#### Attributes
-This link tag has an attribute whose name is `href` and whose value is a `url`:
-![anchor tag](http://reactorprep.herokuapp.com/assets/images/links.png)
-
-Attributes provide additional information about an element. They appear on the opening tag of the element and are made up of two parts: a **name** and a **value**, separated by an equals sign.
-
-Image tags (`<img>`) have an attribute named `src` whose value is the location of the image to be displayed, like this:
-
-```html
-<img src="https://i.imgur.com/81qyN1y.jpg" alt="This text will show up, only if the image doesn't (also good for screen readers)">
-```
-
----
-
-### Portfolio Project 3
-
-Let's expand on the landing page we've already made for our online portfolio!
-
-While it's possible to link to HTML documents in your website with any name (as long as they have the `.html` file extension), it's generally considered best practice to create new directories for each page. At the root of each new directory should be another `index.html` file. This makes the URL prettier when users search your site, and it organizes things a bit better for future developers. Let's set up a 'Projects' page using this method:
-
-1. If you're already in the Portfolio page's root (or top-level) directory, make a new directory called 'projects' (HINT: `mkdir projects`). Remember that different capitalizations are different addresses, so keep a consistent naming convention for all folders (i.e. don't capitalize any words, and separate multi-word directory names with hyphens, e.g. `my-favorite-directory` instead of `MyFavoriteDirectory`).
-2. Now navigate into your newly-created projects folder (HINT: `cd projects`) and create another `index.html` file (HINT: `touch index.html`).
-3. Use Atom to edit your new `projects/index.html` file.
-  1. Set the page up just like any other HTML document (see the emmet shortcut).
-  2. Give the page a `<title>` of `Firstname Lastname | Projects`.
-  3. Add an **ordered list** (`<ol>`) of the following projects:
-    + Class Showcase
-    + Choose Your Own Adventure
-    + Web Store Hack-A-Thon
-4. Now go back to your landing page (`/index.html`), and edit that file to include the following:
-  1. The profile image from `greeting.md`
-  2. The social media links from `greeting.md`
-  3. A "navigation list" at the top of your landing page, with links to 'Home' (`/`) and 'Projects' (`/projects`).
-  4. At least one comment for future developers (or you!) using the syntax `<!-- comment text -->`
-5. Make sure that your website is working locally using the open-in-browser plugin
-
----
-
-### npm and Node
-
-Installing libraries, toolkits, programs, and applications through installation wizards, icons, and GUIs is time-consuming, and there's no way of knowing how those installations will interact. Most projects will need at least a couple of external tools, and managing those installations across a team (or across multiple devices) can be a real pain.
-
-That's why we need a **package manager** to help us install helpful tools from the command line! Two JavaScript tools will help us manage these extra 'packages':
-
-1. [Node.js](https://nodejs.org/en/)
-2. npm ('Node Package Manager')
-
-Node.js allows JavaScript to be run outside of the browser. That means that we can use JavaScript to run programs on your local machine, on servers, and in development stacks of all types. One of those programs is **npm**, which helps us install packages and manage 'dependencies' (external code upon which our project depends).
-
-#### EXERCISE 9
-1. Install the latest 'stable' version of Node.js from their website.
-2. To make sure that you've installed node correctly, type `node -v` into your CLI.
-3. If you get an output that looks like `v4.0.0`, you're on the right track
-4. npm comes packaged with Node.js, so you should also be able to type `npm -v` to get a version number for your npm installation.
-5. If both of those work, you're all set up!
-
----
-
-### Firebase
-
-So far, we've just been working with files on our local machines. To push our local website to an actual website, we're going to use a service called [Firebase](https://firebase.com). Follow these steps to push your new Portfolio online!
-
-1. Register an account with Firebase on [their website](https://firebase.com).
-2. Use **npm** to install Firebase's command-line tools with the following command:
-`npm install -g firebase-tools`
-3. Once that has been installed, you'll need to authenticate your account and initialize your project with the following commands:
+1. In any command prompt, type the following (using your name and email, of course):
 ```shell
-firebase login
-firebase init
+$ git config --global user.name "Firstname Lastname"
+$ git config --global user.email "your.email@example.com"
 ```
-4. When you run `firebase init`, you will be guided through the creation of a configuration file called `firebase.json`. Make sure you answer the questions the following way:
-  1. *What Firebase do you want to use?* : `[create new firebase]`
-  2. *Name your new Firebase* : `firstname-lastname-portfolio`
-  3. *Which directory should be the public root?* : `.` (<- that's a period, to indicate that we're using the current directory instead of one called 'public')
-5. If everything from step 4 went as planned you should be able to deploy and open your site with:
+2. You can check all of your configuration settings by typing
 ```shell
-firebase deploy
-firebase open
+$ git config --list
 ```
+
+That wasn't so bad, right?
+
+
+#### EXERCISE 5
+
+`git` works by creating a folder within the 'working directory' (the directory that you would like to track/save over time). The first step to saving any project, then, is to navigate to this 'working directory' and create that `git` folder (named `.git`). Let's set up your portfolio project as a `git` repository to track over time.
+1. First, navigate to your `~/Code/SavvyCoders/FirstnameLastname` directory.
+2. Next, while still the `FirstnameLastname` directory, type the following:
+```shell
+$ git init
+```
+3. That *should* have created a `.git` folder, which is hidden by default. There are two ways to make sure that our `git init` command worked. Try these both out:
+  + list all of the hidden folders (including `.git`) in `exercises`:
+  ```shell
+  $ ls -a
+  ```
+  You should see a folder called `.git` in the output.
+  + try running a simple `git` command:
+  ```shell
+  $ git status
+  ```
+  If you get `FATAL: exercises is not a git repository`, something has gone wrong. If everything worked, you should see something like this:
+  ```
+  $ git status
+  On branch master
+  Initial commit
+  Untracked files:
+    (use "git add <file>..." to include in what will be committed)
+          README.md
+  nothing added to commit but untracked files present (use "git add" to track)
+  ```
+4. Once `git` is *initialized* (`init` = initialize), we should be able start saving snapshots of our work. Before committing our work, though, we have to *stage* our changes. You can do that with the following command:
+```shell
+$ git add .
+```
+That `.` at the end is very important! That's telling `git` to stage everything in the working directory at once. To make sure that everything worked, type in `git status` again. You should get output that looks something like this:
+```shell
+$ git status
+On branch master
+Initial commit
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   README.md
+```
+5. As nice as it is to get this far, we **still** haven't committed our changes yet. So we wouldn't be able to roll back to this point in the event of error, because `README.md` is still waiting to be fully committed. Let's do that with the following command:
+```shell
+$ git commit -m "First commit"
+```
+`git` forces us to create a *commit message* whenever a commit is made. This is a short snippet of text that helps you remember exactly what was changed in each commit. Normally committing and creating a commit are two different steps, but you can combine the two by adding the `-m` flag (for 'message'), followed by your custom commit message in quotation marks. If everything works as planned, you should see something like the following output:
+```shell
+$ git commit -m "First commit"
+[master (root-commit) ee6ac27] First commit
+ 1 file changed, 3 insertions(+)
+ create mode 100644 README.md
+```
+6. Now if you run `git log`, you'll see a list containing your entire `git` history (it should be pretty short at the moment). But we still only have _one copy_ of our codebase. To back up our work, let's use GitHub! The first step is to [create a new repository on online GitHub account](https://help.github.com/articles/create-a-repo/).
+7. After you've created your new repository, you'll need to link that repo to your current project directory. You can do that with `git remote add origin https://github.com/YOURUSERNAME/YOUR-REPO-ADDRESS.git`. If you've done this correctly, you should see the word `origin` pop up in the command-line when you type `git remote`.
+8. Now we need to **push** our local commit (called 'First commit', containing only the README.md file) to the remote repository. To do that, enter the following command:
+```shell
+$ git push origin master
+```
+9. If that worked, you should see your `README.md` file appear in your GitHub GUI after a page refresh. Now you have two copies of your `git` repository... nice work!
+
+---
+
+### Hello, World
+
+For your very first website, we're going to complete a quick `Hello, World` using HTML (more on that next time!).
+
+1. Set up your Netlify account to track your Portfolio Project's GitHub Repository! Once these two things are connected, you'll be able to push "live" to your very own website with a simple `git push origin master`.
+2. Be sure to name your Netlify site whatever you'd like (instead of the randomly-generated name provided).
+3. Now we're going to make a landing page for your new site!
+  1. Create a landing page with the command `touch ~/Code/SavvyCoders/FirstnameLastname/index.html`
+  2. In Atom, open up that new `index.html` file
+  3. Type in `!`, then hit `TAB`
+  4. You should now have some HTML boilerplate!
+  5. Inside the `<body>` tags, type in `h1{Hello, world!}` and hit `TAB` to see your very first HTML text.
+  6. Use `git` to `stage`, `commit`, and `push` your changes to GitHub
+  7. Netlify should automatically update your landing page, where you should see `Hello, World!` in a big, bold font.
 
 And now you have your very own website! Congratulations.
