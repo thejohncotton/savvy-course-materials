@@ -1,9 +1,29 @@
-## CLIs, GitHub, Markdown, and HTML
-### Welcome to the first class!
+# CLIs, git, GitHub, and "Hello, World"
+## Welcome to the first class!
 
-The first priority is to make sure that everyone knows everyone else, knows all about the resources that Savvy Coders provides (email, phone contacts, Slack channels, and moral support of one's peers). Follow along in the slides to see get the hang of that process. *TIME SPENT: 15 minutes*
+### Housekeeping
+
+To get things started, we need to download a few things for our __development environment__. These include the following:
+
+1. A bash-friendly command-line interface
+2. Version control systems
+3. A text editor
+4. Helpful editor plugins
+5. Slack!
+
+The process for each of these things should depend a bit on your operating system, but should help us work together in a consistent environment for the rest of the course.
+
+You'll also need a few online accounts to get started. These should _all be tied to the same email address_! These external accounts include:
+
+1. Slack
+2. GitHub
+3. Netlify
+
+We'll set them up together as we work through tonight's materials.
+
 
 ### Interfacing with Computers
+
 The operating system is the program (series of instructions) that runs when you turn on your computer. It handles inputs (keyboard, mouse, camera, network connections) and outputs (monitor, speakers, network connections), manages shared access to computing resources and memory, and reads and writes data to the file system on behalf of any number of simultaneously running applications (web browser, code editor, text document, music player, etc). We interact with the computer through the operating system, usually by TYPING, TOUCHING, or CLICKING.
 
 Computers can receive user input through either a command line interface (CLI) or a graphical user interface (GUI). In a command line interface (A.K.A. "Console", "Terminal", or "Shell"), the user types commands using the keyboard to tell the computer to take an action. The computer will display the results of the operation by writing text to the screen.
@@ -16,25 +36,39 @@ GOAL FOR THE COURSE: All navigation should be done using **words** instead of **
 > -William Shotts, Jr.
 > Linux Command.org
 
-We will start out by using the CLI to navigate through the file system on our personal computers. The key is to think of the directory structure as a 'tree' with 'branches', rather than a bunch of 1s and 0s stored in memory. The OS abstracts all of that memory management away, so you and I can work directly with the human-facing interface we call a file structure.
+There are lots of applications that are built to be a command-line interface. Many of them are specific to different operating systems. The most commonly-used CLIs are based on the Unix shell, and there are a number of options available for each operating system.
 
-![File Structure](http://savvycoders.com/class-slides/images/fs.png)
+#### Linux (all distributions)
+  + Built-in Desktop Environment Terminals (Konsole, GNOME shell, etc.)
+  + Termite, Terminator, Tilda, etc.
 
-There are lots of applications that are built to be a command-line interface. Many of them are specific to different operating systems. The big ones:
+  To install:
 
-+ *Linux*
-  + sh = "shell" program
-  + bash = "Bourne Again SHell"
-+ *Mac*
+  If you're using Linux, you already have a unix-style terminal installed! Any will do for this course, but you may use your distribution's package manager to install another if you're so inclined.
+
+#### macOS
   + Terminal
-+ *Windows*
-  + Command Prompt
+  + iTerm2
+
+  To install:
+
+  While using Terminal is fine for most purposes, iTerm2 has some nice additional features. Download iTerm2's latest stable release from [here](https://www.iterm2.com/downloads.html)
+
+#### Windows
+  + Linux Subsystem for Windows terminal
+  + Cygwin
   + PowerShell
-  + cygwin
-  + cmder
   + git bash
 
-Windows users will be using a combination of git bash and PowerShell for this course.
+  To install:
+
+  If at all possible (on an updated Windows 10 machine) install the [Linux Subsystem on Windows](https://msdn.microsoft.com/en-us/commandline/wsl/install-win10). This gives you access to most of the functionality of a Linux system called Ubuntu, which includes a wonderful terminal emulator and package manager.
+
+  If the Linux Subsystem isn't possible, then we can get a fake Linux terminal with [Cygwin](https://cygwin.com/install.html). Download one of the executables for your OS (32-bit or 64-bit), and run to install Cygwin. 
+
+We will start out by using the CLI to navigate through the file system on our personal computers. The key is to think of the directory structure as a 'tree' with 'branches', rather than a bunch of 1s and 0s stored in memory. The OS abstracts all of that memory management away, so you and I can work directly with the human-facing interface we call a file structure.
+
+
 
 ---
 
