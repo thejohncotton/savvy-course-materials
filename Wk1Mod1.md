@@ -64,29 +64,27 @@ There are lots of applications that are built to be a command-line interface. Ma
 
   If at all possible (on an updated Windows 10 machine) install the [Linux Subsystem on Windows](https://msdn.microsoft.com/en-us/commandline/wsl/install-win10). This gives you access to most of the functionality of a Linux system called Ubuntu, which includes a wonderful terminal emulator and package manager.
 
-  If the Linux Subsystem isn't possible, then we can get a fake Linux terminal with [Cygwin](https://cygwin.com/install.html). Download one of the executables for your OS (32-bit or 64-bit), and run to install Cygwin. 
+  If the Linux Subsystem isn't possible, then we can get a fake Linux terminal with [Cygwin](https://cygwin.com/install.html). Download one of the executables for your OS (32-bit or 64-bit), and run to install Cygwin.
 
-We will start out by using the CLI to navigate through the file system on our personal computers. The key is to think of the directory structure as a 'tree' with 'branches', rather than a bunch of 1s and 0s stored in memory. The OS abstracts all of that memory management away, so you and I can work directly with the human-facing interface we call a file structure.
+  However, both of these options can be time-consuming to install, so we will get started tonight with the Git Bash terminal that's packaged with `git`, our version control system. We'll download that [here](https://git-scm.com/downloads).
 
 
+> __NOTE__: From here on out, we'll use the terms `terminal`, `command-line`, and `CLI` interchangeably
 
 ---
 
 #### EXERCISE 1
-1. Download or Open relevant CLI for your OS
-2. Download and install [git](https://git-scm.com/)
 
----
+We will start out by using the CLI to navigate through the file system on our personal computers. The key is to think of the directory structure as a 'tree' with 'branches', rather than a bunch of 1s and 0s stored in memory. The OS abstracts all of that memory management away, so you and I can work directly with the human-facing interface we call a file structure.
 
-#### EXERCISE 2
-1. Navigate to the desktop FOLDER in your OS's GUI (for the last time!)
+1. Open up your terminal of choice and type in `pwd`. What do you see?
 2. Make a note of that folder's location, then repeat the process with your CLI
   1. print your starting location: `pwd`
   2. list the file structure: `ls`
   3. change directories: `cd`
   4. move up a directory: `cd ..`
-  5. move to a specific directory: `cd [directory path]`
-3. In your desktop folder, create a folder called `SavvyCoders` for all of your Savvy-related work! You can do that with the `mkdir` command (e.g. `mkdir SavvyCoders`).
+  5. move to your `$HOME` directory: `cd ~`
+3. In your `$HOME` directory (`~`), create a folder called `SavvyCoders` for all of your Savvy-related work! You can do that with the `mkdir` command (e.g. `mkdir SavvyCoders`).
 
 ---
 
@@ -101,8 +99,8 @@ The text editor that we'll be using for this course is called [Atom](https://ato
 3. Open up the Settings in Atom (File > Settings or `ctrl + comma`)
 4. Go to 'Install' and install the following packages:
   1. [open-in-browser](https://atom.io/packages/open-in-browser)
-  2. [emmet](https://atom.io/packages/emmet)
-  3. [script](https://atom.io/packages/script)
+  2. [emmet](https://atom.io/packages/emmet
+  3. [file-icons](https://atom.io/packages/file-icons)
   4. [javascript-snippets](https://atom.io/packages/javascript-snippets)
 
 ---
