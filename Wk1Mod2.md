@@ -1,10 +1,14 @@
 ## HTML5, style, and CSS
-### Getting stylish
-
-At this point, everyone should have the first version of their personal portfolio website deployed through Netlify. As cool as that is, though, there's still just **one** local copy of the website. Let's learn a bit more about the HTML that goes into websites like yours.
 
 ---
+### Warm Up:
+1. Use Atom to add a fun fact about yourself to the `README.md` file in your project directory.
+2. `stage`, `commit`, and `push` your changes to GitHub
+3. In `index.html`, add a line of `lorem ipsum`.
+4. `stage`, `commit`, and `push` your changes to GitHub
+5. Verify that your new `index.html` content has been deployed through Netlify
 
+---
 
 ### HTML
 HTML (Hyper-Text Markup Language) is a markup language for describing the structure and content of web documents (web pages). It is comprised of markup tags and text content nested inside each other.
@@ -40,7 +44,7 @@ By following the proscribed rules of HTML, a web browser understands this to be 
 
 ---
 
-#### EXERCISE 7
+#### EXERCISE 1
 
 It's time to take a look at how browsers (like Chrome) render HTML content!
 1. Open [example1.html](https://savvycoders.com/class-slides/class-materials/week-1/module-1/html/example1.html)
@@ -55,20 +59,20 @@ It's time to take a look at how browsers (like Chrome) render HTML content!
 
 ---
 
-### Portfolio Project 2
+### Portfolio Project 1
 
-Now it's time to turn your `greeting.md` into a landing page for your portfolio site! Since browsers don't work with Markdown by default, we want to use HTML for our Portfolio on the web. Go through the following steps to get started:
+Now it's time to turn your `README.md` into a landing page for your portfolio site! Since browsers don't work with Markdown by default, we want to use HTML for our Portfolio on the web. Go through the following steps to get started:
 
 1. Make sure that you're inside your portfolio project directory (called `FirstnameLastname`).
-2. Once inside, we need to create our HTML file! We shouldn't call it `greeting`, though. All browsers look for an `index.html` file to display by default. You can name other pages whatever you'd like, but the landing page for every site should always be `index.html`. So let's create that file with `touch index.html`.
-3. Edit `index.html` in Atom. Make sure that it includes the following BEFORE we start porting in text from `greeting.md`:
+2. All browsers look for an `index.html` file to display by default. You can name other pages whatever you'd like, but the landing page for every site should always be `index.html`. We created this file last time, but verify that it's still there with the content you expect.
+3. Edit `index.html` in Atom. Make sure that it includes the following BEFORE we start porting in text from `README.md`:
   1. `<!DOCTYPE HTML>`
   2. `<html>`,`<head>`, and `<body>` tags
   3. `<title>` tags and a title of `Firstname Lastname | Web Developer`
 
   *HINT: you can use emmet's HTML boilerplate by typing* `!` *then pressing* `TAB`
 
-4. Then you can start moving content from `greeting.md` into `index.html`
+4. Then you can start moving content from `README.md` into `index.html`
   1. Use `<h1>` for headings
   2. Use `<p>` for paragraphs of text
   3. Use `<ul>` for unordered lists (and use `<li>` for each nested list element)
@@ -80,7 +84,7 @@ Now it's time to turn your `greeting.md` into a landing page for your portfolio 
   ---
 
 ### More HTML tags
-#### EXERCISE 8
+#### EXERCISE 3
 Open up [this page](https://savvycoders.com/class-slides/class-materials/week-1/module-1/html/example2.html) in Chrome and answer the following questions as a group:
 1. What `font-size` does the browser give an `<h2>` element by default?
 2. What `font-size` does the browser give an `<h6>` element by default?
@@ -103,7 +107,7 @@ Image tags (`<img>`) have an attribute named `src` whose value is the location o
 
 ---
 
-### Portfolio Project 3
+### Portfolio Project 2
 
 Let's expand on the landing page we've already made for our online portfolio!
 
@@ -119,31 +123,11 @@ While it's possible to link to HTML documents in your website with any name (as 
     + Choose Your Own Adventure
     + Web Store Hack-A-Thon
 4. Now go back to your landing page (`/index.html`), and edit that file to include the following:
-  1. The profile image from `greeting.md`
-  2. The social media links from `greeting.md`
+  1. The profile image from `README.md`
+  2. The social media links from `README.md`
   3. A "navigation list" at the top of your landing page, with links to 'Home' (`/`) and 'Projects' (`/projects`).
   4. At least one comment for future developers (or you!) using the syntax `<!-- comment text -->`
-5. Make sure that your website is working locally using the open-in-browser plugin
-
----
-
-### Portfolio Project 1
-
-Now we need to do the same thing with our Portfolio Project! One issue, though: we don't want to commit *everything* to `git` every time. Sometimes, we want to keep our configuration files or sensitive information on our local computer, so it wouldn't make sense to share that information with others through `git` and GitHub. One example we've already encountered is Firebase's configuration file, `firebase.json`. We want to ignore that file in our saves, so we're going to create a special file in our Portfolio Project directory that will automatically exclude that file from future commits.
-1. Make sure you've navigated to your project folder (`FirstnameLastname`) from `exercises` (HINT: `cd ../FirstnameLastname`).
-2. Next, create a hidden configuration file named `.gitignore` (HINT: `touch .gitignore`). This is a special kind of text file that `git` is always on the lookout for in working directories.
-3. Inside your new `.gitignore` file, add the following on the first line:
-```
-firebase.*
-```
-...and that's it! Now `git` will always ignore any file (with any file extension) named `firebase`.
-4. We still need to initialize, stage, and commit our changes, though! Repeat the processes from Exercise 2 to commit your Portfolio Project's changes. HINT: you'll need the following commands:
-```shell
-$ git init
-$ git add .
-$ git commit -m "First commit"
-```
-Congrats! You now have your first commit of your Portfolio project! Make sure to stage and commit changes after ***every feature*** (for most folks... about every 10 minutes).
+5. Make sure that your website is working locally by pressing `CTRL + ALT + 8`, then navigating to `localhost:8000` in your browser.
 
 ---
 
@@ -194,7 +178,6 @@ Let's create a theme for your Portfolio Project's landing page.
 2. Make sure that all styles are inlined with the syntax `style=" "`
 3. Stage and commit your changes using `git`.
 4. Push your committed changes to your GitHub account.
-5. To make sure that these changes work in 'production' (e.g. live on the web), deploy your changes using `firebase` as well.
 
 ---
 
@@ -339,8 +322,7 @@ Now it's time to add a few more elements to our Portfolio Project pages.
 1. Anchor tags (`<a href=""></a>`) have been used already to link to websites using `http` or `https`. They can also be used to automatically draft an email and open it in a browser window for users to send! Try the following:
     1. On your landing page, add a 'Contact Me' link.
     2. Inside the `href` attribute, use `mailto:` + your email address instead of `http:` + a website URL. Your new element should look something like `<a href="mailto:your.email@example.com?Subject=Contact%20Form">Contact Me</a>`.
-2.`<iframe>` tags let you display an entire HTML document as part of your page. Try adding a map of your current location using [Google Maps](https://support.google.com/maps/answer/3544418?hl=en).
-3. Stage, Commit, Push and Deploy your new landing page!
+2. Stage, Commit, Push and Deploy your new landing page!
 
 ---
 
