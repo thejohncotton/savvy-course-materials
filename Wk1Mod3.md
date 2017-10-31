@@ -162,7 +162,7 @@ As our documents grow, we'll need to leverage more complex CSS selection syntax.
         //css that only applies to divs with a class of 'container'
     }
     ```
-3. *The Child Selector*
+3. *The Direct Decendant Selector*
 
     ```css
     div>p {
@@ -179,8 +179,83 @@ As our documents grow, we'll need to leverage more complex CSS selection syntax.
         //other elements, like spans or lists)
     }
     ```
+5. *The Direct Sibling Selector*
 
+  ```css
+  div + footer {
+    //css that applies to the first footer sibling of a div
+  }
+  ```
+
+6. *The Sibling Selector*
+
+  ```css
+  div + img {
+    //css that applies to all images that are siblings to divs
+  }
+  ```
 These rules might seem like overkill right now, but they're extremely useful for when you have large stylesheets of CSS rules that apply across multiple pages. Speaking of which...
+
+---
+
+## Pseudo-stuff
+
+There are some selectors that can be used to make some very basic calculations about the state of your markup, and add styles accordingly. These aren't real classes or selectors, since they aren't able to select anything on their own. Rather, these are used to filter the results of a selector into a useful subset of HTML elements to style. Here are a few of the most useful:
+
+1. `:first-child`
+
+    ```css
+    li:first-child {
+      // applies to the first list item of every list
+    }
+    ```
+
+2. `:last-child`
+
+    ```css
+    li:last-child {
+      // applies to the last list item of every list
+    }
+    ```
+3. `:nth-child(n)`
+
+    ```css
+    li:nth-child(2) {
+      // applies to the second list item of every list
+    }
+    ```
+
+4. `:nth-child(an)`
+
+    ```css
+    li:nth-child(2n) {
+      // applies to every other list item of every list
+    }
+    ```
+
+5. `:hover`
+
+    ```css
+    li:hover {
+      // applies to every list item the user is hovering over
+    }
+    ```
+
+---
+
+## Specificity
+
+Up to this point, you've heard all about the 'cascade' in _Cascading Style Sheets_. That cascade refers to the way in which styles are applied in a cascading pattern of increasing [__specificity__](https://css-tricks.com/specifics-on-css-specificity/). Up to this point, you've heard the term "specificity" used colloquially, but here we're going to give you a quick way of putting a number value on a given selector's specificity.
+
+![specificity diagram](https://css-tricks.com/wp-content/csstricks-uploads/specificity-calculationbase.png)
+
+As a quick rule of thumb, look at a selector, and put a number in the correct box that corresponds to the number of each selector's component parts. As an example:
+
+![example specificity calculation](https://css-tricks.com/wp-content/csstricks-uploads/cssspecificity-calc-1.png)
+
+![example specificity calculation 2](https://css-tricks.com/wp-content/csstricks-uploads/cssspecificity-calc-2.png)
+
+In this example, there are more component parts in the second example, but the first is still more specific (and would take precendent over the second in the event of a rule collision) because of the power of the ID `#nav` 
 
 ---
 
