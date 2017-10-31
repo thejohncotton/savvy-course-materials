@@ -47,7 +47,45 @@ By following the proscribed rules of HTML, a web browser understands this to be 
 #### EXERCISE 1
 
 It's time to take a look at how browsers (like Chrome) render HTML content!
-1. Open [example1.html](https://savvycoders.com/class-slides/class-materials/week-1/module-1/html/example1.html)
+1. Create a new `example.html` file and paste in the following:
+  ```html
+  <!DOCTYPE html>
+<html>
+<head>
+  <title>HTML EXAMPLE</title>
+</head>
+<body>
+
+  <h1>HTML Example 1</h1>
+  <p>[CMD + OPT + U] to view the source code of this HTML document.</p>
+  <p>Now close the source code and inspect the document in the Elements panel of your Chrome Developer Tools [CMD + OPT + I] instead</p>
+  <p>Use the magnifying glass in the top left to select elements in the window area.</p>
+  <p>
+    W  O  A  h
+      WHAT'S
+    GO  -  ING
+                      on
+
+
+    h   e   r   e
+                !
+          !
+    !
+  </p>
+  <!-- ALERT: THIS IS JUST A COMMENT -->
+
+  <!--
+
+      SECRET: Developers often use comments to annotate their code.
+
+              ...or complain about their bosses. They aren't rendered on the page.
+              So only people who view the source code get to see them. Fun!
+
+  -->
+</body>
+</html>
+
+  ```
 2. Open up Chrome's Dev Tools and take a look at Elements and their associated STYLES:
   ![dev tools](http://reactorprep.herokuapp.com/assets/images/elements.png)
 
