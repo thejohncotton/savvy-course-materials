@@ -79,13 +79,57 @@ Now it's time to turn your `README.md` into a landing page for your portfolio si
   4. Use `<hr>` to create an horizontal rule
   5. Use `<br>` to add extra line breaks between elements
   6. Make sure you've saved the file!
-  7. To see what your page looks like, right-click on index.html in your directory tree (in the left-hand sidebar) and click 'Open in Browser'
+  7. To see what your page looks like, we'll use `atom-live-server` and a browser! Use `CTRL + ALT + 3`, then navigate to `localhost:3000` in your browser.
 
   ---
 
 ### More HTML tags
 #### EXERCISE 3
-Open up [this page](https://savvycoders.com/class-slides/class-materials/week-1/module-1/html/example2.html) in Chrome and answer the following questions as a group:
+Create a new file with `touch example.html`. Open this file in Atom and paste in the following HTML:
+
+```html
+<html>
+  <head>
+    <title>More styles!</title>
+  </head>
+  <body>
+    <h1>This is a header</h1>
+    <h2>This is an even smaller header</h2>
+    <h3>Even smaller...</h3>
+    <h6>Quite small</h6>
+    <p>Here is some normal text. A paragraph, even!</p>
+    <p><i>This text is in italics.</i></p>
+    <p><b>This text is in bold.</b></p>
+    <p><b><i>This text is in both.</i></b></p>
+    <p><del>This text is rendered with strikethrough.</del></p>
+    <p>Sometimes you want to embed some <i>stylized text</i> right into <b>your paragraph.</b> Pretty cool, right!</p>
+    <p>You could BREAK <br> the line, but it's not used very often these days.</p>
+    <hr>
+    <ul>
+      <li>Item</li>
+      <li>Item</li>
+      <li>Another item</li>
+    </ul>
+    <p>w/ sub-lists</p>
+    <ol>
+      <li>Item one</li>
+      <li>Item two</li>
+      <li>Item three
+        <ul>
+          <li>Sub-item</li>
+          <li>Sub-item</li>
+        </ul>
+      </li>
+      <li>Item four</li>
+    </ol>
+    <p><a href="http://www.google.com">I&#39;m a link to a web page!</a></p>
+    <p><img src="https://i.imgur.com/81qyN1y.jpg" alt="This text will show up, only if the image doesn't (also good for screen readers)"></p>
+    <p><img src="../../assets/images/profile.png" alt="local photo"></p>
+  </body>
+</html>
+```
+Then go to `localhost:3000/example.html` and answer the following:
+
 1. What `font-size` does the browser give an `<h2>` element by default?
 2. What `font-size` does the browser give an `<h6>` element by default?
 3. What `font-style` does the browser give an `<em>` element by default?
@@ -118,7 +162,7 @@ While it's possible to link to HTML documents in your website with any name (as 
 3. Use Atom to edit your new `projects/index.html` file.
   1. Set the page up just like any other HTML document (see the emmet shortcut).
   2. Give the page a `<title>` of `Firstname Lastname | Projects`.
-  3. Add an **ordered list** (`<ol>`) of the following projects:
+  3. Add an **ordered list** (`<ol>`) of the following projects (hint: `ol>li*3 + TAB`):
     + Class Showcase
     + Choose Your Own Adventure
     + Web Store Hack-A-Thon
@@ -127,7 +171,6 @@ While it's possible to link to HTML documents in your website with any name (as 
   2. The social media links from `README.md`
   3. A "navigation list" at the top of your landing page, with links to 'Home' (`/`) and 'Projects' (`/projects`).
   4. At least one comment for future developers (or you!) using the syntax `<!-- comment text -->`
-5. Make sure that your website is working locally by pressing `CTRL + ALT + 8`, then navigating to `localhost:8000` in your browser.
 
 ---
 
