@@ -237,96 +237,97 @@ The layout above is a very common layout for blogs... much like the blog that we
   2. Inside of `#sidebar`, create an unordered list of 15 past posts that can be used as some placeholder content.
   3. Now give `.container` a css rule of `position: relative`. The `.container` class should now have the following CSS:
 
-    ```css
-    .container {
-      position: relative;
-      max-width: 960px;
-      margin: 0 auto;
-    }
-    ```
+  ```css
+  .container {
+    position: relative;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  ```
   4. You should have a `<div>` for blog text content already, with an `id` of `content`. Give `#content` the following CSS:
 
-    ```css
-    #content {
-      position: absolute;
-      width: 600px;
-    }
-    ```
+  ```css
+  #content {
+    position: absolute;
+    width: 600px;
+  }
+  ```
     Since we gave `.container` a rule of `position: relative;`, we can now position `.container`'s child elements 'absolutely', 'relative' to `.container`. It's a weird syntax, but it's important to understand. Think of it like this: `position: absolute` works exactly the same as `position: fixed`, but we're affixing the element inside of a container instead of the viewport. And that parent element has to have `position:relative`, otherwise the nearest containing element will just be the viewport!
   5. We'll do the same thing for `#sidebar` that we did for `#content`, more or less. Add the following CSS to `#sidebar`:
 
-    ```css
-    #sidebar {
-      width: 350px;
-      margin-left: 600px;
-    }
-    ```
+  ```css
+  #sidebar {
+    width: 350px;
+    margin-left: 600px;
+  }
+  ```
 6. While absolute positioning works for wider screens, it's not at all responsive. In this day and age, that's no good. Let's try the following instead:
   1. Remove the `position` and `margin-left` properties from `#container`, `#content`, and `#sidebar`.
   2. Add `float: left` to both `#content` and `#sidebar`.
   3. Add `overflow: auto` to `.container`.
   4. Change the widths of `#content` and `#sidebar` to 75% and 25%, respectively. The final CSS for this section should look something like this:
 
-    ```css
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      overflow: auto;
-    }
+  ```css
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    overflow: auto;
+  }
 
-    #content {
-      float: left;
-      width: 75%;
-    }
+  #content {
+    float: left;
+    width: 75%;
+  }
 
-    #sidebar {
-      float: left;
-      width: 25%;
-    }
-    ```
+  #sidebar {
+    float: left;
+    width: 25%;
+  }
+  ```
 7. Now that we have a responsive layout for our blog content, it's time to fix our navigation menu to be a bit more responsive! To do that, we're going to use a newer CSS property called **flex-box**. Flex-box helps us align, justify, and wrap content within a container of variable width. Let's see if we can create a navigation menu that wraps automatically on smaller screens!
   1. Change your `#nav` CSS to the following:
 
-    ```css
-    #nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: auto;
-      width: 100vw;
-    }
-    ```
+  ```css
+  #nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: auto;
+    width: 100vw;
+  }
+  ```
   2. If you haven't already, give the `<ul>` in your `#nav` section a class of `.container` to center the useful links on a large screen. We also need to add some CSS to our `ul.container` element. CSS for the whole `#nav` family is going to look like this:
 
-    ```css
-    #nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: auto;
-      width: 100vw;
-    }
+  ```css
+  #nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: auto;
+    width: 100vw;
+  }
 
-    #nav>ul.container {
-      //these styles will extend the styles already contained in the .container class
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      align-items: center;
-    }
+  #nav>ul.container {
+    //these styles will extend the styles already contained in the .container class
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+  }
 
-    #nav li {
-      display: inline;
-      list-style-type: none;
-    }
-    ```
-    Flex-Box works with the same parent-child relationship that we saw with `position: relative` and `position: absolute`. In this case, we're setting up `ul.container` as our parent element, and each `li` element inside as the children. The CSS rules added to `ul.container` have the following properties:
-      + `display: flex` sets up the parent element (much like `position: relative` did)
-      + `flex-direction` tells the flex-box which way to 'flex': `row` for horizontally, `column` for vertically
-      + `flex-wrap` tells the flex-box what to do with children when they've reached the edge of the parent. In this case, we're using `wrap` to wrap list elements around into a new row.
-      + `justify-content` defines the spacing of child elements. They can be evenly spaced from the edges with `spac-around`, maximize space between elements with `space-between`, or be clumped at the start, end, or center of the parent element with `flex-start`, `flex-end`, or `center`, respectively.
-      + `align-items` defines how children should be aligned with one another on the axis perpendicular to the `flex-direction`. In this case, `center` vertically aligns all `li` elements. If `flex-direction` were `column`, `center` would align items horizontally.
+  #nav li {
+    display: inline;
+    list-style-type: none;
+  }
+  ```
+
+Flex-Box works with the same parent-child relationship that we saw with `position: relative` and `position: absolute`. In this case, we're setting up `ul.container` as our parent element, and each `li` element inside as the children. The CSS rules added to `ul.container` have the following properties:
+  + `display: flex` sets up the parent element (much like `position: relative` did)
+  + `flex-direction` tells the flex-box which way to 'flex': `row` for horizontally, `column` for vertically
+  + `flex-wrap` tells the flex-box what to do with children when they've reached the edge of the parent. In this case, we're using `wrap` to wrap list elements around into a new row.
+  + `justify-content` defines the spacing of child elements. They can be evenly spaced from the edges with `spac-around`, maximize space between elements with `space-between`, or be clumped at the start, end, or center of the parent element with `flex-start`, `flex-end`, or `center`, respectively.
+  + `align-items` defines how children should be aligned with one another on the axis perpendicular to the `flex-direction`. In this case, `center` vertically aligns all `li` elements. If `flex-direction` were `column`, `center` would align items horizontally.
 8. And there you have it... a (mostly) responsive layout built with CSS! At this point, you can add any padding or margins you need to get your page looking pretty, then stage, commit, push, and deploy your changes.
 
 ---
