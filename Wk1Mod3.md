@@ -187,10 +187,10 @@ As our documents grow, we'll need to leverage more complex CSS selection syntax.
   }
   ```
 
-6. *The Sibling Selector*
+6. *The General Sibling Selector*
 
   ```css
-  div + img {
+  div ~ img {
     //css that applies to all images that are siblings to divs
   }
   ```
