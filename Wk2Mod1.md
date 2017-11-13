@@ -82,14 +82,20 @@ Now we have bits of data stored in memory for us to manipulate, which is nice. B
 1. The key to control flow are `if`, `else`, and `else if` statements, built on the Boolean data type. These statements allow us to perform a Boolean test, then give different outputs based on the results of that test. Try the following in your console:
 
   ```javascript
-  if( myCountry === 'USA' ) console.log('Sweet Land of Liberty');
+  if( myCountry === 'USA' ) {
+    console.log('Sweet Land of Liberty');
+  }
   ```
   This is a Boolean test that should output a string to the console when `myCountry` is set to `'USA'`. If there's any other value stored to `myCoutry`, then nothing will be output at all.
 2. Let's try to account for every other condition with an `else` clause, like so:
 
   ```javascript
-  if( myCountry === 'USA' ) console.log('Sweet Land of Liberty');
-  else console.log('Sounds like you need some DEMOCRACY');
+  if( myCountry === 'USA' ) {
+    console.log('Sweet Land of Liberty');
+  }
+  else {
+    console.log('Sounds like you need some DEMOCRACY');
+  }
   ```
 
   Now something should output each time that block of code is run, since it covers every possible condition!
@@ -102,16 +108,16 @@ Now we have bits of data stored in memory for us to manipulate, which is nice. B
   };
   ```
   Now we have our test available whenever we'd like to call it again, saved just like any other variable. Now try the following, and see what happens:
-  
+
   ```javascript
   freedomCheck
   freedomCheck()
   ```
-  The first just accesses the data stored in the variable, which includes the whole `function()` phrase. But we really want to *invoke* the function instead, which is what happens when we use the parens after the name of the stored function (e.g. `freedomCheck()`). Now we actually run the code inside of the curly braces instead of just displaying it in the REPL. 
-  
-  
+  The first just accesses the data stored in the variable, which includes the whole `function()` phrase. But we really want to *invoke* the function instead, which is what happens when we use the parens after the name of the stored function (e.g. `freedomCheck()`). Now we actually run the code inside of the curly braces instead of just displaying it in the REPL.
+
+
 ### Exercise 3
-#### built-in functions and your first JavaScript-enabled web page
+#### built-in functions, recursion, and your first JavaScript-enabled web page
 
 So the console is fun, but it's still not connected to the HTML that we know and love in a way that end-users could ever see. How can we add JavaScript to one of our web pages?
 
@@ -127,19 +133,19 @@ So the console is fun, but it's still not connected to the HTML that we know and
     <title>Greeter</title>
   </head>
   <body>
-    
+
   </body>
   </html>
-  
+
   ```
   At the bottom of the `<body>` tag, add the following:
-  
+
   ```html
   <script type="text/javascript">
     console.log('Hello world!');
   </script>
   ```
-  
+
   When you reload your preview page, you should see 'Hello world!' in your console. You've now added JavaScript to your page!
 4. The function `console.log()` is a built-in function recognized by browsers everywhere. Some functions are so commonly used that they're simply a part of the language spec... otherwise we'd have to replicate those functions in nearly every JavaScript project. Let's make our greeting a bit more obnoxious using the built-in function `alert()`.
 
@@ -148,7 +154,7 @@ So the console is fun, but it's still not connected to the HTML that we know and
     alert('Hello world!');
   </script>
   ```
-  You should notice that, just like `console.log()`, `alert()` takes a String of data as an *argument*, listed between the parens when the function is invoked. We'll learn much more about arguments later, but just remember for the time being that arguments are the bits of data that are passed directly into a function without needing to be saved to a *global* variable accessible by every other function (like `myCountry` was in the previous example). 
+  You should notice that, just like `console.log()`, `alert()` takes a String of data as an *argument*, listed between the parens when the function is invoked. We'll learn much more about arguments later, but just remember for the time being that arguments are the bits of data that are passed directly into a function without needing to be saved to a *global* variable accessible by every other function (like `myCountry` was in the previous example).
 5. What about user input? Luckily, we have another obnoxious built-in function called `prompt()`. This function can also take a String as an argument. Try this:
 
   ```html
@@ -158,47 +164,65 @@ So the console is fun, but it's still not connected to the HTML that we know and
   </script>
   ```
   What happened to the user input here? As of right now, nothing! Let's try this instead:
-  
-  ```html
-  <script type="text/javascript">
-    var name = prompt('What is your name?');
-    alert('Hello ' + name);
-  </script>
-  ```
-  Neat, huh? `prompt()` actually returns a string for us to play around with. We just need to use that value instead of letting it float off into space. In this example, we saved the String from our `prompt()` into a variable called `name`. Then, because it's a String, we can concatenate the value of `name` into the String used in `alert()`. 
-6. Let's try using a function of our own on this page. How about our old friend `freedomCheck()`?
 
   ```html
   <script type="text/javascript">
     var name = prompt('What is your name?');
+
     alert('Hello ' + name);
-    
-    var myCountry = prompt('what is your favorite country?');
-     
-    var freedomCheck = function(){
-      if( myCountry === 'USA' ) alert('Sweet Land of Liberty');
-      else alert('Sounds like you need some DEMOCRACY');
-    };
-    
-    freedomCheck();
   </script>
   ```
-7. Now we've implemented a bit of 'inline' JavaScript on our page! Just like working with CSS, though, it's more typical to see scripts in their own separate document. This is especially important for large codebases with thousands of lines of JavaScript code. Let's try it with our greeter page:
+  Neat, huh? `prompt()` actually returns a String for us to play around with. We just need to use that value instead of letting it float off into space. In this example, we saved the String from our `prompt()` into a variable called `name`. Then, because it's a String, we can concatenate the value of `name` into the String used in `alert()`.
+6. This works great, but what happens when a user neglects to actually enter a value in the `prompt()`? Try it out! ... you should see that we still have an output of `Hello ` (that's the word `Hello` with a single space after it). How could we check to make sure that a user isn't entering a blank name into the `prompt()`? How about something like this:
+
+  ```html
+  <script type="text/javascript">
+    var name = prompt('What is your name?');
+
+    if(name === "") { // checks for an empty string
+      name = prompt('What is your name, for real this time?');
+    }
+
+    alert('Hello ' + name);
+  </script>
+  ```
+7. Notice that we can over-write the value of `name` at any point in our codebase, including when the `prompt()` returns an empty String. But what are some gaps in this implementation? For one, we probably want to check that the user is actually giving us a value _even if the user repeatedly chooses that empty value_. To do that, we need to do two things: First, we need to abstract our name-checking logic to a `function`, then we need to re-write our code such that the `function` calls itself until a condition is met. This is called recursion, and it looks like this:
+
+  ```html
+  <script type="text/javascript">
+    var name = prompt('What is your name?');
+
+    var checkName = function(){
+      if(name === "") {
+        name = prompt('What is your name, for real this time?');
+
+        checkName(); // repeats until a name exists
+      }
+    }
+
+    checkName(); // kicks off the name-checking the first time
+
+    alert('Hello ' + name);
+  </script>
+  ```
+8. Now we've implemented a bit of 'inline' JavaScript on our page! Just like working with CSS, though, it's more typical to see scripts in their own separate document. This is especially important for large codebases with thousands of lines of JavaScript code. Let's try it with our greeter page:
     1. Just like saving HTML files as `.html` and CSS files as `.css`, JavaScript files are saved as `.js`. Create a file called `greeter.js`.
     2. Copy the contents of the `<script>` tag (NOT the `<script>` tag itself!) over to `greeter.js`. HINT: the entire document should look like:
 
     ```javascript
-      var name = prompt('What is your name?');
-      alert('Hello ' + name);
-      
-      var myCountry = prompt('what is your favorite country?');
-       
-      var freedomCheck = function(){
-        if( myCountry === 'USA' ) alert('Sweet Land of Liberty');
-        else alert('Sounds like you need some DEMOCRACY');
-      };
-      
-      freedomCheck();
+    var name = prompt('What is your name?');
+
+    var checkName = function(){
+      if(name === "") {
+        name = prompt('What is your name, for real this time?');
+
+        checkName(); // repeats until a name exists
+      }
+    }
+
+    checkName(); // kicks off the name-checking the first time
+
+    alert('Hello ' + name);
     ```
     3. Modify the rest of your `<script>` tag in `greeter.html` to look like this:
     ```html
