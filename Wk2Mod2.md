@@ -98,7 +98,7 @@ Let's try exploring your Portfolio project through the `document` Object!
     ```
 3. `querySelector()` and `querySelectorAll()` are both functions accessible through the `document` Object. Every modern browser will expose these functions for you to use! You'll also notice that they each return a different type of complex data type:
     + `querySelector()` returns a single DOM node, which is an Object that contains all of the same useful functions that we saw in the `document` Object (including `querySelector()`!)
-    + `querySelectorAll()` returns an array of DOM nodes (where `querySelector()` only returns the first node that matches the selector).
+    + `querySelectorAll()` returns an array-like list of DOM nodes (where `querySelector()` only returns the first node that matches the selector).
   This means that we can assign these DOM nodes to variables and treat them just like any other Object or Array. To see how that works in action, try the following from the console:
 
   ```javascript
@@ -106,7 +106,7 @@ Let's try exploring your Portfolio project through the `document` Object!
   var navLinkArr = nav.querySelectorAll('li');
   var firstNavLink = navLinkArr[0];
   var secondNavLink = navLinkArr[1];
-  
+
   firstNavLink.textContent;
   secondNavLink.textContent = "New Link Text";
   ```
