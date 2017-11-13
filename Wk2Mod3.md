@@ -1,5 +1,5 @@
 ## DOM Review and Choose-Your-Own Adventure
-### ...plus builds and booleans!
+### ...plus type coercion and booleans!
 
 Up to this point, our JavaScript exercises have added a bit of flair to some existing websites, but haven't really been 'programs' in the their own right. Today we change that! But first, a bit more info about the Boolean data type:
 
@@ -25,6 +25,25 @@ true || false
 false || true
 false || false
 ```
+
+But wait, there's more! While `true` and `false` are the only truly Boolean values, statements like `if` or the no-so-strict equality operator `==` are a bit more flexible. They're looking for values that are "truthy" or "falsey". These are values that are _coerced_ into `true` or `false` (respectively). We can see this coercion in action by using the negation operator `!` twice. Try a few of the following to see if they're "truthy" or "falsey":
+
+```javascript
+!!""
+!!"Hello"
+!!0
+!!123
+!![]
+!![1,2,3]
+!!{}
+!!{ "foo": "bar" }
+
+0 == false
+1 == "1"
+2 == {}
+```
+
+These are perhaps a bit strange, but they allow us to write some fairly terse conditional expressions. As an example: can you see where we can re-write our `greeter.js` from a previous module with one of these "falsey" values?
 
 ### Portfolio Project 1
 #### Greeter 3.0
