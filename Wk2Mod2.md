@@ -1,21 +1,35 @@
 ## Intro to JavaScript pt. 2
 ### complex data types and DOM interactions
 
-After yesterday, we've mastered the art of the irritating pop-up. But how do we add more complex functionality to our `.js` projects? And how do we make that added complexity appear in the visible fold?
+After the last module, we've mastered the art of the irritating pop-up. But how do we add more complex functionality to our `.js` projects? And how do we make that added complexity appear in the visible fold?
+
+### Exercise 0
+#### Setting up your Linter
+
+Now that we're editing standalone JavaScript files, we get to use one of the most important tools in the developer's arsenal: the _linter_. This tool will point at grammatical and syntactical errors in our JavaScript as we write it, and fix most errors on save (rather than forcing us to chase down wayward commas, parens, or curly brackets).
+
+We already downloaded the `linter-eslint` package, but this package needs a special configuration file to work. This file is called `.eslintrc.json`, and provides hundreds of customizeable rules to help you maintain a consistent JavaScript style. For the remainder of this course, we'll use the `.eslintrc` file found [here](./.eslintrc.json). You may copy this file into your own project directory, and you should immediately start getting hints from your editor as you type. Pay attention to these warnings, and your code should be free of an entire class of basic typing errors!
 
 ### Exercise 1
 #### Complex Data Types
 
-Primitive data types like we covered yesterday are meant to represent a single piece of discrete data. It can be a large piece (think of War and Peace as a single String), but it's still just one item.
+Let's revisit some of the Primitive Data types we covered in the last module:
+
+1. __String__, e.g. `"Hello", "1", or ""`
+2. __Number__, e.g. `1`, `1239`, `1.2`, or `1e4`
+3. __Boolean__, e.g. `true` or `false`
+4. `undefined` <- that's, right _undefined_. In JavaScript, undefined values have their own data type!
+
+Primitive data types like we covered in the last module are meant to represent a single piece of discrete data. It can be a large piece (think of War and Peace as a single String), but it's still just one item.
 
 Complex or Composite data types represent **Collections** of data. The Complex data types of JavaScript are Array and Object. We'll dig much deeper into both of these data types later, but for now, let's learn how to construct them using *Literal Notation*.
 
-**Arrays** are ordered lists of data. The data can be of any type, including String, Number, Boolean, or even variables and functions. We can create a variable of type Array like so:
+**Arrays** are ordered lists of data. The data can be of any type, including String, Number, Boolean, `undefined`, or even variables and functions. We can create a variable of type Array like so:
 
 ```javascript
 //try this out in your console!
-var myArray = ['String', 23, 'Another String', true, false];
-console.log(myArray);
+var myArray = [ 'String', 23, 'Another String', true, false ];
+console.log( myArray );
 ```
 
 Now try same thing with a mixture of variables and literals:
@@ -24,27 +38,40 @@ Now try same thing with a mixture of variables and literals:
 var myString = 'String';
 var myNum = 23;
 var myBoo = true;
+var myUndef;
 
-var myArray = [myString, myNum, 'Another String', myBoo, false];
-console.log(myArray);
+var myArray =  [myString, myNum, 'Another String', myBoo, myUndef, false ];
+console.log( myArray );
 ```
 The output should be exactly the same for both of those examples!
 
 Just like we can invoke a function using parens (e.g. `prompt()`), we can access data in an array using *bracket notation*. Try it out on `myArray`:
 
 ```javascript
-console.log(myArray[0] + ' and ' + myArray[2]);
+console.log( myArray[0] + ' and ' + myArray[2] );
 ```
 Arrays are also *zero-indexed*, which means that the first piece of data in the collection has a position of 0 (instead of 1). We'll see a lot more of this later. For now, it's enough to just recognize an array when you see one!
 
-**Objects** are collections of data just like Arrays, but we can access data by *name* instead of *sequence*. Let's try to re-write part of `myArray` as an Object:
+**Objects** are collections of data just like Arrays, but we can access data by *name* instead of *sequence*. All names are themselves arbitrary Strings that you're free to make up as you see fit. Let's try to re-write part of `myArray` as an Object:
 
 ```javascript
-var myObject = { myString: 'String', myNum: 23, myBoo: true };
-console.log(myObject.myString);
-```
+var myObject = {
+  "myString": 'String',
+  "myNum": 23,
+  "myBoo": true
+};
 
-Objects are the foundation of an entire programming paradigm known as **Object Oriented Programming**, which we'll definitely be revisiting. For right now, it's enough to understand that we can store data in Objects and access them by name using *dot notation*.
+console.log( myObject[ "myString" ] );
+```
+Notice that, just like Arrays, we can access parts of Object by the things with which that part is associated... in this case, the String we used to name our data.
+
+Objects are the foundation of an entire programming paradigm known as **Object Oriented Programming**, which we'll definitely be revisiting. For right now, it's enough to understand that we can store data in Objects and access them by name using either _bracket notation_ or a shortcut called *dot notation*.
+
+Dot notation for the above example would be something like:
+
+```javascript
+console.log( myObject.myNum ); // 23
+```
 
 Hopefully you recognize that we've already been working with built-in Objects, including `window` and `console`. Typing `window.location` was accessing the `location` property of the `window` Object provided by the browser. `console.log()` invokes the `log` function contained in a `console` Object provided by the browser. `window` and `console` are part of the BOM, or Browser Object Model (notice the 'Object' part of that). It's the collection of all of the data and built-in functions provided by the browser, that we can access at any time.
 
@@ -79,6 +106,7 @@ Let's try exploring your Portfolio project through the `document` Object!
   var navLinkArr = nav.querySelectorAll('li');
   var firstNavLink = navLinkArr[0];
   var secondNavLink = navLinkArr[1];
+  
   firstNavLink.textContent;
   secondNavLink.textContent = "New Link Text";
   ```
