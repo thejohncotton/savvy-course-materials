@@ -91,9 +91,9 @@ var book1 = {
     "id": 1,
     "name": "Lasagna: A Retrospective",
     "author": "Garfield"
-    "picture_url": "http://graphics8.nytimes.com/images/2015/10/15/dining/15RECIPE20DIN/15RECIPE20DIN-articleLarge.jpg",
+    "pictureUrl": "http://graphics8.nytimes.com/images/2015/10/15/dining/15RECIPE20DIN/15RECIPE20DIN-articleLarge.jpg",
     "price": 24,
-    "selling_points": [
+    "sellingPoints": [
         "Lasagna is delicious.",
         "The essential guide to Italian casseroles of all types.",
         "Real G's move silent, like Lasagna. -Lil Wayne"
@@ -101,14 +101,14 @@ var book1 = {
 }
 ```
 
-10. You may also want to give your objects unique id properties such as `book_1` to more easily generate id attributes for their `divs` on the page.
+10. You may also want to give your objects unique id properties such as `book1` to more easily generate id attributes for their `divs` on the page.
 11. Leaving the HTML tags intact, remove your existing text content (and image `src`) about each product from the HTML. Now use jQuery to add the information about each product back onto the page immediately upon page load. So:
 
 ```javascript
 $('#book1 .name').text(book1.name)
 ```
 
-12. Refactor your code so that you can call a function `add_to_page(book1)`, passing in an object, and that object will be placed using jQuery into the html page. Now you should just call `add_to_page` for each book and the `add_to_page` function will place it on the page for you.
+12. Refactor your code so that you can call a function `addToPage(book1)`, passing in an object, and that object will be placed using jQuery into the html page. Now you should just call `addToPage` for each book and the `addToPage` function will place it on the page for you.
 
 Refactor your code such that the content div is completely empty on page load, and `addToPage` constructs and appends new HTML elements into it. So:
 
@@ -132,7 +132,7 @@ $('#content').append($("<div id='book" + book1.id + "'>").html( $('<div class=na
                 formObject[field.name] = field.value;
             } );
 
-            append_to_page(formObject);
+            appendToPage(formObject);
         });
     ```
 
@@ -155,7 +155,7 @@ $('#content').append($("<div id='book" + book1.id + "'>").html( $('<div class=na
         } );
 
         if(formObject.password === "banana"){
-            append_to_page(formObject);
+            appendToPage(formObject);
         } else {
             alert( "Sorry, you didn't enter the correct password" );
         }
