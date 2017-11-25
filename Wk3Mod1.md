@@ -110,54 +110,74 @@ $('#book1 .name').text(book1.name)
 
 12. Refactor your code so that you can call a function `addToPage(book1)`, passing in an object, and that object will be placed using jQuery into the html page. Now you should just call `addToPage` for each book and the `addToPage` function will place it on the page for you.
 
-Refactor your code such that the content div is completely empty on page load, and `addToPage` constructs and appends new HTML elements into it. So:
+To make this work, make sure that `addtoPate` constructs and appends new HTML elements into the content area of the page. So:
 
 ```javascript
 $('#content').append($("<div id='book" + book1.id + "'>").html( $('<div class=name>').text(book1.name)))
 ```
-13. Make sure each book or album's div has the appropriate class and id attributes generated for it. You should not have to change any css while refactoring.
-14. Now let's make this form work! There will be some special tricks used to make sure that users can click "Submit" to add a new book to the page. We'll be getting into these `Event`s later in the week! For today, though, try copy->pasting the following:
+13. Make sure each book or album's div has the appropriate class and id attributes generated for it. __You should not have to change any css while refactoring__.
+14. Now that we can call `addToPage` for each item, how can we use a `for` loop to append any number of books or albums to the page? How would we arrange our data to facilitate adding all of this data to the page? In this case, we'll be looking for an Array of Objects!
 
-    ```javascript
-        var count = 2;
-
-        $("form").on("submit", function(event) {
-            event.preventDefault();
-
-            var data = $(this).serializeArray();
-            var formObject = {};
-
-            formObject.id = ++count;
-            data.forEach( function(field){
-                formObject[field.name] = field.value;
-            } );
-
-            appendToPage(formObject);
-        });
-    ```
-
-    We'll explain how the code above works over the next week!
-15. Now you should be able to append our new book object to the page when a user submits the form! But we don't want just _any_ user to be able to add a new book. Let's make sure that only users with the right password can add content. Add a "password" field to the top of the form.
-16. Now we can use a quick "admin" check in our form script to make sure that a user knows the (not-so-secret) password. Try it yourself first (there are lots of ways to do this). _HINT_:
+Let's refactor our book objects into a `books` array. HINT:
 
 ```javascript
-    var count = 2;
+var books = [
+    {
+        "id": 1,
+        "name": "Lasagna: A Retrospective",
+        "author": "Garfield"
+        "pictureUrl": "http://graphics8.nytimes.com/images/2015/10/15/dining/15RECIPE20DIN/15RECIPE20DIN-articleLarge.jpg",
+        "price": 24,
+        "sellingPoints": [
+            "Lasagna is delicious.",
+            "The essential guide to Italian casseroles of all types.",
+            "Real G's move silent, like Lasagna. -Lil Wayne"
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Another book",
+        "author": "Another author"
+        "pictureUrl": "http://graphics8.nytimes.com/images/2015/10/15/dining/15RECIPE20DIN/15RECIPE20DIN-articleLarge.jpg",
+        "price": 25,
+        "sellingPoints": [
+            "Yet another book!"
+        ]
+    }
+]
+```
+15. With the new data structure, we should be able to use a `for` loop to add each book to the page in turn. HINT:
 
-    $("form").on("submit", function(event) {
-        event.preventDefault();
+```javascript
+for( var i = 0; i < books.length; i++ ){
+    appendToPage( books[i] );
+}
+```
+16. Now let's make this form work! There will be some special tricks and new syntax used to make sure that users can click "Submit" to add a new book to the page. We'll be getting into these `Event`s later in the week! For today, though, try copy->pasting the following:
 
-        var data = $(this).serializeArray();
+```javascript
+    $( "form" ).on( "submit", ( event ) => {
+        var data = $( event.target ).serializeArray();
         var formObject = {};
 
-        formObject.id = ++count;
-        data.forEach( function(field){
-            formObject[field.name] = field.value;
+        event.preventDefault();
+
+        formObject.id = books.length + 1;
+        formObject.sellingPoints = [];
+
+        data.forEach( ( field ) => {
+            if( field.name === "sellingPoints" ){
+                formObject.sellingPoints.push( field.value )
+            }
+            else {
+                formObject[ field.name ] = field.value;
+            }
         } );
 
-        if(formObject.password === "banana"){
-            appendToPage(formObject);
-        } else {
-            alert( "Sorry, you didn't enter the correct password" );
-        }
+        books.push( formObject );
+
+        appendToPage( formObject );
     });
 ```
+
+    We'll explain how the code above works over the next week!
