@@ -4,13 +4,29 @@
 We've already seen a variety of functions, from built-on functions like `console.log()`, to functions from external libraries like `$()` from jQuery, to a few of our own built using `var functionName = function(){}`. We've also already learned how to _invoke_ or _execute_ functions with `()`, as well as passing in a few simple arguments (like we've done with `.css("property", "value")`). Let's dig into these a bit deeper.
 
 ---
+### a new syntax (part 1)
+
+Up to this point, we've been writing functions like this:
+
+```javascript
+var someFunction = function someFunction(){}
+```
+
+While it's clear what's going on here, we have another way writing functions that's a bit cleaner. It's called a _named functional expression_, and it looks like this:
+
+```javascript
+function someFunction(){}
+```
+
+While there are some technical differences between the two ways of declaring functions, the latter is used much more widely than the former, and is generally a bit easier to read. As long as we treat the functional expression the same way we were treating it's `var`-based cousin, we should be fine (and save ourselves a few keystrokes in the process).
+
 
 ### the `return` keyword
 
 Here's a function that `return`s a value without any side effects:
 
 ```javascript
-var greeter = function () {
+function greeter() {
   return 'Hello'
 }
 
@@ -18,115 +34,154 @@ var greeter = function () {
 var greeting = greeter();
 
 // using the return value to compose larger expressions
-console.log(greeting + ", nice to meet you.")
+console.log( greeting + ", nice to meet you." )
 
 // what's the difference here?
-console.log(greeter() + ", nice to meet you.")
+console.log( greeter() + ", nice to meet you." )
 ```
-The result of evaluating an expression consisting of a function reference followed by an invocation operator is the value to the right of the keyword return inside the function when the code is run.
+The result of evaluating an expression consisting of a function reference followed by an invocation operator is the value to the right of the keyword `return` inside the function. Easy peasy, right?
 
 ```javascript
-var saying_generator = function () {
+function sayingGenerator() {
   var phrase = "Heeey, " + "it's the " + " Fonz."
   return phrase
 }
 
 // What is the return value?
-var saying = saying_generator()
+var saying = sayingGenerator()
 
-var broken_saying_generator = function () {
+function brokenSayingGenerator() {
   var phrase = "Heeey, " + "it's the " + " Fonz."
   phrase
 }
 
 // What about now?
-var broken_saying = broken_saying_generator()
+var brokenSaying = brokenSayingGenerator()
 ```
 
 ### Exercise 1
-### Getting Sentences
+### Testing Your Choose-Your-Own-Adventure Choices
 
-Go to your Portfolio Project home page, open it with `open-in-browser`, then open up the dev console. Try the following:
-
-1. Define a new function called `getSentence`. HINT:
+When we left our Choose-Your-Own-Adventure game, we had a `runStory` function that looked like this:
 
 ```javascript
-var getSentence = function(){};
-```
+function runStory( branch ){
+    var chapter = story[branch];
+    var choices = chapter.choices;
+    var isValidChoice = false;
+    var choice;
 
-2. Use `Math.random` to select between some of the contact information listed on your home page. HINT:
+    if( choices ){
+        choice = prompt( chapter.text );
 
-```javascript
-var getSentence = function(){
-  var rng = Math.random();
+        for( var i = 0; i < choices.length; i++ ){
+            if( choice === choices[i] ){
+                isValidChoice = true;
+            }
+        }
 
-  if(rng < 0.33){
-    $(/* selector for the first element */);
-  } else if(rng >= 0.33 && rng < 0.66){
-    $(/* selector for the second element */);  
-  } else {
-    $(/* selector for the third element */);
-  }
+        if( isValidChoice ){
+            runStory( choice );
+        }
+        else{
+            runStory( branch );
+        }
+    }
+    else{
+        document
+            .querySelector( "#output" )
+            .textContent = chapter.text;
+    }
 };
 ```
 
-3. Return the text content your randomly-generated selection with `return`. HINT:
+While this works, it has a complexity (or number of possible branches) of more than 4. This is tough to read and tough to debug. How can we reduce the complexity of this function through `return` values?
+
+1. Let's start with choice validation. How can we wrap up the choice-checking logic in a function that `return`s a single Boolean value? How about:
 
 ```javascript
-var getSentence = function(){
-  var rng = Math.random();
-  var sentence;
+function validateChoice( choice, choices ){
+  var isValidChoice = false;
 
-  if(rng < 0.33){
-    sentence = $(/* selector for the first element */).text();
-  } else if(rng >= 0.33 && rng < 0.66){
-    sentence = $(/* selector for the second element */).text();  
-  } else {
-    sentence = $(/* selector for the third element */).text();
+  for( var i = 0; i < choices.length; i++ ){
+      if( choice === choices[i] ){
+          isValidChoice = true;
+      }
   }
 
-  return sentence;
+  return isValidChoice;
+}
+```
+
+2. Once we've re-written our `validateChoice` logic, we can refactor `runStory` into something like this:
+
+```javascript
+function runStory( branch ){
+    var chapter = story[branch];
+    var choices = chapter.choices;
+    var choice;
+
+    if( choices ){
+        choice = prompt( chapter.text );
+
+        if( validateChoice( choice, choices ) ){
+            runStory( choice );
+        }
+        else{
+            runStory( branch );
+        }
+    }
+    else{
+        document
+            .querySelector( "#output" )
+            .textContent = chapter.text;
+    }
+};
+
+```
+
+Notice how we're able to use the `return`ed value from `validateChoice` as the truthy (or falsey) value in our second `if` statement. That should knock down our complexity a notch while letting us abstract away our choice logic for the future. Now we can manipulate our choice-checking logic however we'd like without touching our original `runStory` function. Pretty cool! But what else can we do to make this function simpler?
+
+How about getting rid of the nested `if` statement entirely? Let's try it!
+
+```javascript
+function handleChoices( choices ){
+    var choice = prompt( chapter.text );
+
+    if( validateChoice( choice, choices ) ){
+        runStory( choice );
+    }
+    else{
+        runStory( branch );
+    }
+}
+
+function runStory( branch ){
+    var chapter = story[branch];
+    var choices = chapter.choices;
+
+    if( choices ){
+        handleChoices( choices );
+    }
+    else{
+        document
+            .querySelector( "#output" )
+            .textContent = chapter.text;
+    }
 };
 ```
 
-4. Use jQuery to append the selected text to the bottom of the page inside a set of `<p>` tags. HINT:
-
-```javascript
-var newSentence = getSentence();
-
-$('body').append('<p>' + newSentence + '</p>');
-```
-
-5. Create a new function that generates and appends a sentence in one fell swoop. HINT:
-
-```javascript
-var sentenceAppender = function(){
-  var newSentence = getSentence();
-
-  $('body').append('<p>' + newSentence + '</p>');
-}
-```
-
-6. Use a `while` loop to run your new sentence-appending function 10 times. HINT:
-
-```javascript
-var i = 0;
-
-while(i < 10){
-  sentenceAppender();
-  i++;
-}
-```
+Now we have the additional mental overhead of multiple functions, with the added benefit of clearer intent and less per-function complexity. What do you think?
 
 ---
 
 ### Arguments
 
-During every function invocation, you have access to the arguments keyword, which contains all the inputs to the function invocation. Play with this concept until you're sure you understand it.
+During every function invocation, you have access to the `arguments` keyword, which contains all the inputs to the function invocation. Play with this concept until you're sure you understand it.
 
 ```javascript
-var inspector = function () {
-  console.log(arguments)
+function inspector() {
+  console.log( arguments )
 }
 
 // try each invocation individually and ponder the result
@@ -147,8 +202,9 @@ inspector("hello", 7, true, undefined, null, 3 + 12, "nice to" + " meet you")
 1. In your dev console, create a function `logAndReturn` that `console.log`s all of its inputs and then `return`s them. HINT:
 
 ```javascript
-var logAndReturn = function(){
+function logAndReturn(){
   console.log(arguments);
+
   return arguments;
 }
 ```
@@ -171,38 +227,38 @@ logAndReturn( returnedValues );
 It's unwieldy to work with the arguments keyword directly. Usually we use named parameters to give our inputs (arguments) variable names for the length of the function invocation
 
 ```javascript
-var value_logger = function (value) {
+function valueLogger(value) {
   console.log(value)
 }
 
-value_logger("Howdy ho, neighborino!")
+valueLogger("Howdy ho, neighborino!")
 
 // parameters and variables defined in function invocations are local to that invocation
 value     // ReferenceError: No variable 'value' exists
 
 
-value_logger(3 + 7)
+valueLogger(3 + 7)
 
 // where's the seven?
-value_logger(3, 7)
+valueLogger(3, 7)
 
-var doubler = function (num) {
+function doubler(num) {
   return num * 2
 }
 
 // is it ten?
-var should_be_ten = doubler(5)
+var shouldBeTen = doubler(5)
 
-var double_value_logger = function (value1, value2) {
+function doubleValueLogger(value1, value2) {
   console.log(value1, value2)
 }
 
-double_value_logger("hello", "how are you")
+doubleValueLogger("hello", "how are you")
 
 // what is value2?
-double_value_logger("hello")
+doubleValueLogger("hello")
 
-var add = function(num1, num2){
+function add(num1, num2){
   return num1 + num2
 }
 
@@ -215,21 +271,21 @@ var sum = add(7, 12)
 1. Write a function called `tripler` that takes a number and returns triple the value. HINT:
 
 ```javascript
-var tripler = function( num ){
+function tripler( num ){
   return num * 3;
 }
 ```
 2. Create a function `multiply` that takes two numbers as inputs and returns their product. HINT:
 
 ```javascript
-var multiply = function( num1, num2 ){
+function multiply( num1, num2 ){
   return num1 * num2;
 }
 ```
 3. Create a function `divide` that takes two numbers as inputs and returns the result of dividing the first by the second
 
 ```javascript
-var divide = function( num1, num2 ){
+function divide( num1, num2 ){
   return num1 / num2;
 }
 ```
@@ -237,7 +293,7 @@ var divide = function( num1, num2 ){
 4. Create a function `remainder` that takes two numbers as inputs and returns the result of modulo the first by the second
 
 ```javascript
-var remainder = function( num1, num2 ){
+function remainder( num1, num2 ){
   return num1 % num2;
 }
 ```
@@ -254,7 +310,7 @@ Nice work with functions today! For our last activity, we'll implement a Sentenc
 1. Write a function called `stringPrinter` that takes a string as an argument and uses `$('#output').text()` to place it into a specific `<div>` on the web page. HINT:
 
 ```javascript
-var stringPrinter = function( starterString ){
+function stringPrinter( starterString ){
   $('#output').text( starterString )
 }
 ```
@@ -263,7 +319,7 @@ var stringPrinter = function( starterString ){
 4. Write a function called `funnySentence` that takes a noun, an adjective, a verb, and an adverb as inputs, and constructs a string of html text and uses `$('#output').append()` to place it on the page. HINT:
 
 ```javascript
-var funnySentence = function( noun, adjective, verb, adverb ){
+function funnySentence( noun, adjective, verb, adverb ){
   var sentence = "The " + adjective + " " + noun + " " + verb + " " + adverb + ".";
 
   stringPrinter(sentence);
@@ -272,4 +328,4 @@ var funnySentence = function( noun, adjective, verb, adverb ){
 ```
 5. Put each word argument you pass in into spans that have css rules that styles them differently to make them stand out.
 6. Invoke `funnySentence` 5 times.
-Extra Credit: Create a version of `funnySentence` that takes no inputs, but rather constructs a funny sentence on its own from randomly chosen words
+Extra Credit: Create a version of `funnySentence` that takes no inputs, but rather constructs a funny sentence on its own from an array of randomly-chosen words
