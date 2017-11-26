@@ -1,6 +1,6 @@
 ## Arrays
 
-We've seen Arrays before (back during our data types day). And we've been using them undercover since then. _Strings_, in fact, are secretly collections of letters stored at sequential memory addresses (a.k.a. arrays). Let's take a look.
+We've seen Arrays since our first day of complex data types, and we've been using them in a number of different forms since then. _Strings_, in fact, are secretly collections of characters stored at sequential memory addresses (a.k.a. arrays). Let's take a look.
 
 ### Strings
 
@@ -44,9 +44,6 @@ greeting[len - 1]
 Sometimes we want collections of items more complex than single letters. Here's a collection of numbers in an Array:
 
 ```javascript
-var numbers = [99, -5, 82, 65, 39 120, 431, 98, 17, 42]
-
-an array
 var nums = [5, 10, 20, 50, 100, 250]
 
 nums[0]
@@ -83,20 +80,20 @@ words[len - 1]
 In fact, arrays can hold all kinds of stuff:
 
 ```javascript
-var all_kinds_of_stuff = ["Hello", 3, undefined, true, ["woah", "dude"], null]
+var allKindsOfStuff = ["Hello", 3, undefined, true, ["woah", "dude"], null]
 
-all_kinds_of_stuff[0]
-all_kinds_of_stuff[1]
-all_kinds_of_stuff[5]
-all_kinds_of_stuff[6]
+allKindsOfStuff[0]
+allKindsOfStuff[1]
+allKindsOfStuff[5]
+allKindsOfStuff[6]
 
-var another_array = all_kinds_of_stuff[4]
-
-// ?
-another_array[0]
+var anotherArray = allKindsOfStuff[4]
 
 // ?
-all_kinds_of_stuff[4][1]
+anotherArray[0]
+
+// ?
+allKindsOfStuff[4][1]
 ```
 
 Okay, now we've seen some arrays, let's create a few of our own.
@@ -156,17 +153,6 @@ Let's keep editing that contact information array!
 
 ---
 
-Often we want to consider every element in the array in turn.
-
-```javascript
-var i = 0
-
-while (i < words.length) {
-  console.log(words[i])
-  i++
-}
-```
-
 ### Portfolio Project 1
 #### Making Contact
 
@@ -174,41 +160,23 @@ Now let's take our `contactArray` out of the console and into our Portfolio Proj
 
 1. Copy the contents of your `contactArray` list into an array in the javascript file attached to your main index.html page.
 2. Get rid of the individual list elements (and their content!) in the HTML document. You should now only have an empty `<ul>`. Give that `ul` an `id` of `contact-list`.
-3. Use a while loop and jQuery to append each item in your `contactArray` to the `contact-list`. Remember that they need to be list elements!
-4. Refactor your code such that the while loop lives inside a function called `appendStrings` that takes an array as an input (argument).
-5. Refactor append_strings such that it takes two arguments: an array of strings, and a string representing the type of element you would like to append (e.g. `li`, `p`, or something else).
-
----
-
-We do this type of iteration so often, that JavaScript provides us a special kind of loop- the for loop.
-
-```javascript
-for (var i = 0; i < words.length; i++) {
-  console.log(words[i])
-}
-```
-
----
-
-### Portfolio Project 2:
-
-1. Refactor your contact list to use a `for` loop instead of a `while` loop!
-
----
+3. Use a for loop and jQuery to append each item in your `contactArray` to the `contact-list`. Remember that they need to be list elements!
+4. Refactor your code such that the for loop lives inside a function called `appendStrings` that takes an array as an input (argument).
+5. Refactor appendStrings such that it takes two arguments: an array of strings, and a string representing the type of element you would like to append (e.g. `li`, `p`, or something else).
 
 ### `.forEach()`
 
 Often it's cleaner to use Array's native .forEach() method to run a given function once for each item in the array, passing that item in as an argument
 
 ```javascript
-var log_me = function(word){
+function logMe(word){
   console.log(word)
 }
 
-words.forEach(log_me)
+words.forEach(logMe)
 ```
 
-### Portfolio Project 3
+### Portfolio Project 2
 
 1. Refactor your `appendStrings` function to use `.forEach()` instead of a while loop.
 
@@ -231,25 +199,25 @@ console.log(friends, enemies) // does not change original arrays!
 
 ### Exercise:
 
-Write a function array_combiner that takes two arrays as inputs and returns the two of them smooshed together as an output
+Write a function arrayCombiner that takes two arrays as inputs and returns the two of them smooshed together as an output
 
 ```javascript
-var array_combiner = function(array1, array2) {}
+function arrayCombiner(array1, array2) {}
 
-var combined_array = array_combiner([1, 2, 3], [4, 5, 6])
-console.log(combined_array)
+var combinedArray = arrayCombiner([1, 2, 3], [4, 5, 6])
+console.log(combinedArray)
 ```
 
 `.splice()` is another confusing one. It destructively removes a number of elements from an array starting at a particular index.
 
 ```javascript
 var frenemies = ['ada', 'will', 'bianca', 'abe', 'john', 'alice']
-var starting_at_index = 3
-var number_to_remove = 2
+var startingIndex = 3
+var numberToRemove = 2
 
-var removed_elements = frenemies.splice(starting_at_index, number_to_remove);
+var removedElements = frenemies.splice(startingIndex, numberToRemove);
 
-console.log("We took out ", removed_elements)
+console.log("We took out ", removedElements)
 console.log("The remaining array ", frenemies)
 ```
 
@@ -258,4 +226,4 @@ console.log("The remaining array ", frenemies)
 1. Write a function that takes an array of values and returns an boolean representing if the word "hello" exists in the array. HINT: test each element with a loop!
 2. Write a function that takes an array of values and a target value and returns how many times that target value exists in the array.
 3. Write a function that takes an array and returns a new array containing only the values at odd indexes in that array.
-4. Write a function called sum_array that takes an array of numbers and returns the sum of all of those numbers added together.
+4. Write a function called sumArray that takes an array of numbers and returns the sum of all of those numbers added together.
