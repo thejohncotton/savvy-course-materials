@@ -33,7 +33,7 @@ We'll use all three of these methods in the next exercise.
 ### Exercise 1
 #### `text` and `html`
 
-For this next exercise, we've created a document that will act as a bit of a sandbox for you. You can find the link [here](https://savvycoders.com/class-slides/class-materials/week-2/module-4/jquery/jquery-selecting.html). When you've navigated there in your browser, take a look at the source code.
+For this next exercise, we've created a document that will act as a bit of a sandbox for you. You can find the link [here](https://jquerysandbox.netlify.com/). When you've navigated there in your browser, take a look at the source code.
 
 Everything should look pretty normal until you get to the closing `<script>` tag. You should see
 
