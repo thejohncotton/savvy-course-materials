@@ -93,9 +93,8 @@ while (n > 0) {
     n--;
 }
 
-ouputHtml = "</ul>";
-
-outputTarget.innerHTML = outputHTML;
+outputHtml += "</ul>";
+outputTarget.innerHTML = outputHtml;
 ```
 6. **EXERCISE 6**: Let's extend the idea of `if` and `else` in `while` loops with a pretty common exercise called FizzBuzz. For this exercise, log and output "Fizz" if a number is divisible by 3, "Buzz" if a number by 5, and "FizzBuzz" if a number is divisible by both 3 and 5. If a number is not divisible by 3 or 5, then just output the number. For this exercise, count up from 1 to 100. HINT:
 
@@ -110,21 +109,21 @@ while (n <= 100) {
         outputHtml += "<li>FizzBuzz</li>";
     } else if (n % 3 === 0) {
         console.log("Fizz");
-        outputHtml += "<li>Fizz</li>";        
+        outputHtml += "<li>Fizz</li>";
     } else if (n % 5 === 0) {
         console.log("Buzz");
         outputHtml += "<li>Buzz</li>";
     } else {
         console.log(n);
-        ouputHtml += "<li>" + n + "</li>";
+        outputHtml += "<li>" + n + "</li>";
     }
 
     n++;
 }
 
-ouputHtml = "</ul>";
+outputHtml += "</ul>";
 
-outputTarget.innerHTML = outputHTML;
+outputTarget.innerHTML = outputHtml;
 ```
 
 Nice work! Be sure to commit all of your stage and `commit` all of your changes before pushing them to GitHub and `deploy`-ing to your live site.
