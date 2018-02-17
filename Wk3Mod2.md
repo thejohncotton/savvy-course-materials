@@ -9,7 +9,7 @@ We've already seen a variety of functions, from built-on functions like `console
 Up to this point, we've been writing functions like this:
 
 ```javascript
-var someFunction = function someFunction(){}
+var someFunction = function(){}
 ```
 
 While it's clear what's going on here, we have another way writing functions that's a bit cleaner. It's called a _named functional expression_, and it looks like this:
@@ -58,7 +58,7 @@ function brokenSayingGenerator() {
 // What about now?
 var brokenSaying = brokenSayingGenerator()
 ```
-
+<!--
 ### Exercise 1
 ### Testing Your Choose-Your-Own-Adventure Choices
 
@@ -173,7 +173,7 @@ function runStory( branch ){
 
 Now we have the additional mental overhead of multiple functions, with the added benefit of clearer intent and less per-function complexity. What do you think?
 
----
+--- -->
 
 ### Arguments
 
@@ -197,7 +197,7 @@ inspector("hello", "how are you")
 inspector("hello", 7, true, undefined, null, 3 + 12, "nice to" + " meet you")
 ```
 
-### Exercise 2:
+### Exercise 1:
 
 1. In your dev console, create a function `logAndReturn` that `console.log`s all of its inputs and then `return`s them. HINT:
 
@@ -265,7 +265,7 @@ function add(num1, num2){
 var sum = add(7, 12)
 ```
 
-### Exercise 3
+### Exercise 2
 #### Simple Math
 
 1. Write a function called `tripler` that takes a number and returns triple the value. HINT:
