@@ -122,7 +122,7 @@ Let's organize the contact information from your Portfolio project into a quick 
 2. Use bracket notation to add pieces of contact information by bullet point.
 3. Access the first step of your `contactArray` using bracket notation.
 4. Create variable called `lastOne` and assign to it a number which represents the index of the last item of your array.
-5. Access the last step of your recipe using the last_step variable
+
 
 ---
 
