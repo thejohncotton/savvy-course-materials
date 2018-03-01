@@ -1,5 +1,5 @@
 ## Advanced Functions
-### `this`, closures, and callbacks
+### closures, and callbacks
 
 We've used quite a few functions up to this point in the course, and should have a good handle on how to create, modify, and invoke functions (with and without parameters), as well as understanding the differences between _side effects_ and _returned values_. But there's still more to learn!
 
