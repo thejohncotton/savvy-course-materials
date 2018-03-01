@@ -102,7 +102,7 @@ booper()
 
 ### Function Scope
 
-Function define their own local scope. Variables declared within a function invocation are available only inside of that function. It's as if invocations are surrounded by one-way mirrors, they can see out and access variables named in their parent scope, but code running outside can't see in to access parameters or variables defined inside.
+Functions define their own local scope. Variables declared within a function invocation are available only inside of that function. It's as if invocations are surrounded by one-way mirrors, they can see out and access variables named in their parent scope, but code running outside can't see in to access parameters or variables defined inside.
 
 ```javascript
 var word = 'original'
