@@ -46,6 +46,7 @@ runner( say_hi() ) // ??
 
 ### Exercise 1
 #### `answerLogger`
+##### Try this out on [Code Pen](https://codepen.io/accounts/signup) or [JSBin ](https://jsbin.com/)
 
 Write a function `answerLogger` that takes a function as input, runs it, and places the return value from that function invocation into a `div#answer`.
 
