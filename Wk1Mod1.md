@@ -38,7 +38,7 @@ Because each operating system is so different, we'll need to install a different
 #### macOS
   + [Homebrew](https://brew.sh/) is the package manager of choice for macOS
   + to install, open up the `Terminal` application from Finder
-  + copy this command : `curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install`
+  + copy this command : `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
   + paste it into your terminal after the `$` like in the example below:
 
  `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
