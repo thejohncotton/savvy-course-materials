@@ -41,7 +41,7 @@ Because each operating system is so different, we'll need to install a different
   + copy this command : `curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install`
   + paste it into your terminal after the `$` like in the example below:
 
- __Johns-Macbook-Pro:~ John$__ _curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install_
+ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
   + ...then just follow the prompts to install!
 
@@ -124,7 +124,7 @@ We will start out by using the CLI to navigate through the file system on our pe
 Beyond a package manager and CLI, we need a few more tools to help us work more efficiently.
 
 #### Git
-As developers, we can't manage file saving (_a.k.a._ version control) the same way as everyone else. We need a command-line program called `git` to help us out! You can install `git` through your operating systems's package manager, e.g.: (Copy and paste the command below into your CLI according to your OS)
+As developers, we can't manage file saving (_a.k.a._ version control) the same way as everyone else. We need a command-line program called `git` to help us out! You can install `git` through your operating system's package manager, e.g.: (Copy and paste the command below into your CLI according to your OS)
 
   + __Linux__: `sudo apt install git` __or__ `sudo pacman -S git`
   + __macOS__: `brew install git`
