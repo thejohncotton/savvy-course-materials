@@ -37,28 +37,32 @@ Because each operating system is so different, we'll need to install a different
 
 #### macOS
   + [Homebrew](https://brew.sh/) is the package manager of choice for macOS
-  + to install, open up the `Terminal` application from Finder, and paste the following into the box:
+  + to install, open up the `Terminal` application from Finder
+  + copy this command : `curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install`
+  + paste it into your terminal after the `$` like in the example below:
 
-  `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+ __Johns-Macbook-Pro:~ John$__ _curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install_
 
   + ...then just follow the prompts to install!
 
 #### Windows
   + [Chocolatey](https://chocolatey.org/install) is the package manager of choice for Windows.
-  + To install, open the PowerShell application as an administrator, then run the following to install Chocolatey:
+  + To install, open the PowerShell application as an administrator, you do this by right clicking PowerShell and selecting  __Run as administrator__:<br><img src="https://www.isumsoft.com/it/wp-content/uploads/2016/04/run-powershell-as-admin.jpg" width="400" height="400" alt="PowerShell admin image" />
+  + then copy the following command below and paste it into PowerShell to install Chocolatey:
 
   `Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))`
 
+__Just a heads up, the command above is only one command, so please copy the entire thing. Thanks!__
 
 ### Interfacing with Computers
 
-The operating system is the program (series of instructions) that runs when you turn on your computer. It handles inputs (keyboard, mouse, camera, network connections) and outputs (monitor, speakers, network connections), manages shared access to computing resources and memory, and reads and writes data to the file system on behalf of any number of simultaneously running applications (web browser, code editor, text document, music player, etc). We interact with the computer through the operating system, usually by TYPING, TOUCHING, or CLICKING.
+The operating system is the program (a series of instructions) that runs when you turn on your computer. It handles inputs (keyboard, mouse, camera, network connections) and outputs (monitor, speakers, network connections), manages shared access to computing resources and memory, and reads and writes data to the file system on behalf of any number of simultaneously running applications (web browser, code editor, text document, music player, etc). We interact with the computer through the operating system, usually by TYPING, TOUCHING, or CLICKING.
 
-Computers can receive user input through either a command line interface (CLI) or a graphical user interface (GUI). In a command line interface (A.K.A. "Console", "Terminal", or "Shell"), the user types commands using the keyboard to tell the computer to take an action. The computer will display the results of the operation by writing text to the screen.
+Computers can receive user input through either a command line interface (__CLI__) or a graphical user interface (__GUI__). In a command line interface (A.K.A. "Console", "Terminal", or "Shell"), the user types commands using the keyboard to tell the computer to take an action. The computer will display the results of the operation by writing text to the screen.
 
 ![Command-Line GIF](http://reactorprep.herokuapp.com/assets/images/cli.gif)
 
-GOAL FOR THE COURSE: All navigation should be done using **words** instead of **pictures**.
+__GOAL FOR THE COURSE__: All navigation should be done using **words** instead of **pictures**.
 
 > "When I was a child, I used a computer by looking at the pictures. When I grew up, I learned to read and write."
 > -William Shotts, Jr.
@@ -73,11 +77,11 @@ There are lots of applications that are built to be a command-line interface. Ma
   __to install__:
 
   If you're using Linux, you already have a unix-style terminal installed! Any will do for this course, but you may use your distribution's package manager to install another if you're so inclined.
-
+ 
 #### macOS
   + iTerm2
 
-  __to install__:
+  __to install__: _(copy and paste the command below into your terminal)_
 
   `brew cask install iterm2`
 
@@ -90,7 +94,7 @@ There are lots of applications that are built to be a command-line interface. Ma
 
   If at all possible (on an updated Windows 10 machine) install the [Linux Subsystem on Windows](https://msdn.microsoft.com/en-us/commandline/wsl/install-win10). This gives you access to most of the functionality of a Linux system called Ubuntu, which includes a wonderful terminal emulator and package manager.
 
-  However, this can be time-consuming to install, so we will get started tonight with the Git Bash terminal that's packaged with `git`, our version control system. We'll download that with the following code in PowerShell to get us started:
+  However, this can be time-consuming to install, so we will get started tonight with the Git Bash terminal that's packaged with `git`, our version control system. We'll download that with the following code in PowerShell to get us started: _(copy and paste the command below into PowerShell)_ 
 
   `choco install git -params '"/GitAndUnixToolsOnPath"'`
 
@@ -105,11 +109,11 @@ We will start out by using the CLI to navigate through the file system on our pe
 
 1. Open up your terminal of choice and type in `pwd`. What do you see?
 2. Make a note of that folder's location, then repeat the process with your CLI
-  1. print your starting location: `pwd`
-  2. list the file structure: `ls`
-  3. change directories: `cd`
-  4. move up a directory: `cd ..`
-  5. move to your `$HOME` directory: `cd ~`
+   1. print your starting location: `pwd`
+   2. list the file structure: `ls`
+   3. change directories: `cd`
+   4. move up a directory: `cd ..`
+   5. move to your `$HOME` directory: `cd ~`
 3. In your `$HOME` directory (`~`), create a folder called `Code` for all of your future coding projects. You can do that with the `mkdir` command (e.g. `mkdir ~/Code`)
 4. Inside of `Code`, create a `SavvyCoders` directory for all of your Savvy-related work! You can do that with the `mkdir` command (e.g. `mkdir ~/Code/SavvyCoders`).
 
@@ -120,38 +124,38 @@ We will start out by using the CLI to navigate through the file system on our pe
 Beyond a package manager and CLI, we need a few more tools to help us work more efficiently.
 
 #### Git
-As developers, we can't manage file saving (_a.k.a._ version control) the same way as everyone else. We need a command-line program called `git` to help us out! You can install `git` through your OS's package manager, e.g.:
+As developers, we can't manage file saving (_a.k.a._ version control) the same way as everyone else. We need a command-line program called `git` to help us out! You can install `git` through your operating systems's package manager, e.g.: (Copy and paste the command below into your CLI according to your OS)
 
-Linux: `sudo apt install git` or `sudo pacman -S git`
-macOS: `brew install git`
-Windows: `choco install git -params '"/GitAndUnixToolsOnPath"'` (this should already be installed)
+  + __Linux__: `sudo apt install git` __or__ `sudo pacman -S git`
+  + __macOS__: `brew install git`
+  + __Windows__: `choco install git -params '"/GitAndUnixToolsOnPath"'` (this should already be installed)
 
 
 #### Atom
-The text editor that we'll be using for this course is called [Atom](https://atom.io). It's a modular editor built for web development, maintained by GitHub, and contributed to by a large Open Source community.
+The text editor that we'll be using for this course is called [Atom](https://atom.io). It's a modular editor built for web development, maintained by GitHub, and contributed to by a large Open Source community. (Copy and paste the command below into your CLI according to your OS)
 
-Linux: `sudo apt install atom` or `sudo pacman -S atom`
-macOS: `brew cask install atom`
-Windows: `choco install atom`
+  + __Linux__: `sudo apt install atom` __or__ `sudo pacman -S atom`
+  + __macOS__: `brew cask install atom`
+  + __Windows__: `choco install atom`
 
 Once you've installed Atom, you should be able to open it from the Start Menu (or Finder). Then, follow these steps to install a few helpful packages/extensions to Atom!
 
-1. Open up the Settings in Atom (File > Settings or `ctrl + comma`)
-2. Go to 'Install' and install the following packages:
-  1. [atom-live-server](https://atom.io/packages/atom-live-server)
-  2. [emmet](https://atom.io/packages/emmet)
-  3. [file-icons](https://atom.io/packages/file-icons)
-  4. [javascript-snippets](https://atom.io/packages/javascript-snippets)
-  5. [linter-eslint](https://atom.io/packages/linter-eslint)
-3. If you're on macOS, install shell commands (Atom > Install Shell Commands)
+1. Open up the Settings in Atom (File > Settings or `ctrl + comma`) <br><img src="https://flight-manual.atom.io/getting-started/images/settings.png" width="500" height="400" alt="Atom settings" />
+2. Go to '+ Install' and install the following packages:
+   1. [atom-live-server](https://atom.io/packages/atom-live-server)
+   2. [emmet](https://atom.io/packages/emmet)
+   3. [file-icons](https://atom.io/packages/file-icons)
+   4. [javascript-snippets](https://atom.io/packages/javascript-snippets)
+   5. [linter-eslint](https://atom.io/packages/linter-eslint)
+3. If you're on macOS, install shell commands (Atom > Install Shell Commands) <br><img src="https://cdn-images-1.medium.com/max/1200/1*1s3vPJrUXPgozK5cJc0UFw.png" width="500" height="400" alt="Atom install shell commands" />
 4. Restart Atom
 ---
 
 #### EXERCISE 2
 1. Navigate to your `SavvyCoders` directory using your CLI
-2. You can open specific directories in Atom using the `atom` command from your command line! If you have already navigated inside the `SavvyCoders` directory, you can open folder using `atom .`
-3. Also in your CLI, use the command `touch haiku.txt` to create a new text file named `haiku.txt` inside of `SavvyCoders`.
-4. Write a short haiku using Atom! (And don't forget the 5-7-5 syllable structure):
+2. You can open specific directories in Atom using the `atom` command from your command line! Once you have navigated to the `SavvyCoders` directory, you can open its folder using the command `atom .`
+3. Also in your CLI, use the command `touch haiku.txt` to create a new text file named `haiku.txt` inside of `SavvyCoders` directory.
+4. Write a short haiku using Atom! (And don't forget the __5-7-5__ syllable structure):
 
   ```
   Haikus are easy,
@@ -188,6 +192,7 @@ Here is some normal text. A paragraph, even!
 Sometimes you want to embed some \*stylized text\*
 right into **your paragraph.** Pretty cool, right!
 
+**Below you see different options for making an unordered list (bullet points):**
 * Item
 * Item
 * Another item
@@ -204,12 +209,13 @@ or
 - Item
 - One last item
 
+**Below you see a way to create an ordered list**
 
 1. Item one
 2. Item two
 3. Item three
 
-w/ sub-lists
+**Below you see a way to create an ordered list with a sub-list**
 
 1. Item one
 2. Item two
@@ -218,30 +224,34 @@ w/ sub-lists
     2. Sub-item
 4. Item four
 
+**Below you see a way to create a horizontal rule**
 ---
 
+**Below you see a way to create a link to a web page** 
 [I'm a link to a web page!](http://www.google.com)
 
+**Below you see a way to add an image from a web page**
 ![alt text](https://i.imgur.com/81qyN1y.jpg)
 
+**Below you see a way to add an image from your local directory**
 ![local photo](assets/profile.png)
 ```
 
 #### EXERCISE 3
 
-1. Now it's time to format haiku.txt with Markdown! Let's `mv` `haiku.txt` to a new file called `haiku.md` with the command `mv haiku.txt haiku.md`
+1. Now it's time to format haiku.txt with Markdown! Let's move `haiku.txt` to a new file called `haiku.md` with the `mv` command: `mv haiku.txt haiku.md`
 2. Create a title for your haiku and format it as a header with `#`
-3. Italicize the first two lines with `* *`.
-4. Italicize and bold the last line with `*** ***`.
-5. Create a horizontal rule after the haiku using `---`.
-6. Create a list of authors as an unordered list using `+ `.
+3. Italicize the first two lines with `* *`
+4. Italicize and bold the last line with `*** ***`
+5. Create a horizontal rule after the haiku using `---`
+6. Create a list of authors as an unordered list using `+ `
 7. Find a relevant photo online and insert it using the syntax `![ ]( )` (see the Markdown above for full syntax)
 
 ---
 
 ### Developer Accounts
 
-There are a number of different online services that help us be productive. Here are three that we'll use for this class.
+There are a number of different online services that help us be productive. Here are three that we'll use for this class:
 
 #### Slack
 All of our communication will go through the class-specific Slack channel! Please sign up for an account (if you haven't already) and download the slack client for your OS through your package manager.
@@ -262,15 +272,15 @@ Over the course of this class, you are going to build a Portfolio Page to practi
 2. Navigate into your Portfolio Project directory (HINT: `cd FirstnameLastname`) and create a new Markdown document called `README.md`.
 3. Open `FirstnameLastname` in Atom (HINT: `atom .`) and start editing `README.md`.
 4. In `README.md`, mock out a quick introduction for those stumbling upon your future Portfolio Project. Be sure to include:
-  1. a picture of yourself
-  2. a heading
-  3. a greeting paragraph
-  4. a list of quick facts about you
-  5. a list of links to your social media profiles like:
-    + GitHub
-    + LinkedIn
-    + Facebook
-    + Twitter
+   1. a picture of yourself
+   2. a heading
+   3. a greeting paragraph
+   4. a list of quick facts about you
+   5. a list of links to your social media profiles like:
+      + GitHub
+      + LinkedIn
+      + Facebook
+      + Twitter
 
 ---
 
