@@ -41,7 +41,7 @@ Because each operating system is so different, we'll need to install a different
   + copy this command : `curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install`
   + paste it into your terminal after the `$` like in the example below:
 
- /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+ `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
 
   + ...then just follow the prompts to install!
 
