@@ -254,6 +254,9 @@ The layout above is a very common layout for blogs... much like the blog that we
   .navigation a:hover + .dropdown {
     display: block; // shows the any dropdown that is a direct sibling of a hovered anchor tag in the navigation bar
   }
+  .dropdown:hover {
+  display: block;
+}
   ```
 7. But how to tackle the page flow issue? We can't use `position: fixed`, because we don't always know where this dropdown's associated `projects` link is going to be relative to the viewport. Instead, we'll use `position: absolute` in combination with `position: relative` to make sure that our dropdown menu "tracks" its parent.
 
@@ -274,6 +277,9 @@ The layout above is a very common layout for blogs... much like the blog that we
   .navigation a:hover + .dropdown {
     display: block;
   }
+  .dropdown:hover {
+  display: block;
+}
   ```
 
 7. Now it's time to fix our navigation menu to be a bit more responsive! To do that, we're going to use a newer CSS property called **flex-box**. Flex-box helps us align, justify, and wrap content within a container of variable width. Let's see if we can create a navigation menu that wraps automatically on smaller screens!
@@ -316,6 +322,10 @@ The layout above is a very common layout for blogs... much like the blog that we
   .navigation a:hover + .dropdown {
     display: block;
   }
+  
+  .dropdown:hover {
+  display: block;
+}
 
   .navigation > ul.container {
     //these styles will extend the styles already contained in the .container class
