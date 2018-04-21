@@ -68,7 +68,7 @@ var outputHtml = "<ul>";
 
 while (n <= 10) {
     console.log(n);
-    ouputHtml += "<li>" + n + "</li>";
+    outputHtml += "<li>" + n + "</li>";
     n++;
 }
 
