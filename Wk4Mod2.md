@@ -43,7 +43,7 @@ runner( say_hi() ) // ??
 ```
 
 ---
-
+<!--
 ### Exercise 1
 #### `answerLogger`
 ##### Try this out on [Code Pen](https://codepen.io/accounts/signup) or [JSBin ](https://jsbin.com/)
@@ -80,7 +80,7 @@ Write a function `answerLogger` that takes a function as input, runs it, and pla
       $("#answer > ol").append("<li>" + answer + "</li>");
     });
   };
-  ```
+  ```-->
 ---
 
 ### Functions as outputs
