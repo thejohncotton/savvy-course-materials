@@ -133,7 +133,7 @@ console.log(new_word + phrase) // ??
 
 ---
 
-### Exercise 2
+### Exercise 1
 #### Secret Keeper
 
 Use the same document or JSBin from Exercise 1 to try this out:
@@ -196,7 +196,7 @@ runner(fn) // what will this log? why?
 
 ---
 
-### Exercise 3
+### Exercise 2
 #### Multipliers!
 
 Write a function `multipliesBy` that takes a number as input and returns a function that, when invoked with a second number as an argument multiplies the two numbers together.
