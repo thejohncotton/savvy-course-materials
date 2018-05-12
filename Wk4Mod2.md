@@ -43,7 +43,7 @@ runner( say_hi() ) // ??
 ```
 
 ---
-<!--
+
 ### Exercise 1
 #### `answerLogger`
 ##### Try this out on [Code Pen](https://codepen.io/accounts/signup) or [JSBin ](https://jsbin.com/)
@@ -80,7 +80,7 @@ Write a function `answerLogger` that takes a function as input, runs it, and pla
       $("#answer > ol").append("<li>" + answer + "</li>");
     });
   };
-  ```-->
+  ```
 ---
 
 ### Functions as outputs
@@ -133,7 +133,7 @@ console.log(new_word + phrase) // ??
 
 ---
 
-### Exercise 1
+### Exercise 2
 #### Secret Keeper
 
 Use the same document or JSBin from Exercise 1 to try this out:
@@ -196,7 +196,7 @@ runner(fn) // what will this log? why?
 
 ---
 
-### Exercise 2
+### Exercise 3
 #### Multipliers!
 
 Write a function `multipliesBy` that takes a number as input and returns a function that, when invoked with a second number as an argument multiplies the two numbers together.
